@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Лейбл — Mayak Music</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body{font-family:'Inter',system_ui,sans-serif}</style>
+</head>
+<body class="bg-[#0B0F1C] text-white">
+  <nav class="fixed top-0 z-50 w-full bg-[#0B0F1C]/95 border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <a href="index.html" class="font-semibold text-xl tracking-tighter">MAYAK LABEL</a>
+      <div class="flex gap-x-7 text-sm">
+        <a href="workspace.html">Workspace</a>
+        <a href="label.html" class="text-[#3B82F6]">Лейбл</a>
+        <a href="school.html">Школа</a>
+        <a href="merch.html">Мерч</a>
+      </div>
+      <button onclick="showUpload()" class="bg-[#FACC15] text-[#0B0F1C] px-6 py-2.5 rounded-2xl font-semibold text-sm">Загрузить трек</button>
+    </div>
+  </nav>
+
+  <div class="pt-20 max-w-7xl mx-auto px-6">
+    <h1 class="text-7xl tracking-[-3px] font-semibold pt-9">Выпустите музыку.<br>Мы сделаем остальное.</h1>
+
+    <div class="grid lg:grid-cols-2 gap-6 mt-10">
+      <div class="bg-[#111827] rounded-3xl p-8 border border-white/10">
+        <div class="text-2xl font-semibold">Дистрибуция</div>
+        <div class="text-sm text-white/70 mt-2">Spotify, Apple, VK, Яндекс, TikTok + 150 сервисов. Релиз за 1–3 дня.</div>
+        <form onsubmit="submitRelease(event)" class="mt-6">
+          <input placeholder="Название трека" class="mb-3 w-full rounded-2xl bg-[#0B0F1C] border border-white/10 px-4 py-3">
+          <input placeholder="Артист" class="mb-3 w-full rounded-2xl bg-[#0B0F1C] border border-white/10 px-4 py-3">
+          <div class="text-xs mb-2">Загрузите MP3/WAV</div>
+          <input type="file" class="mb-4">
+          <button class="w-full py-3.5 rounded-2xl bg-[#FACC15] text-[#0B0F1C] font-semibold">Отправить на релиз — 3 900 ₽</button>
+        </form>
+      </div>
+
+      <div class="bg-[#111827] rounded-3xl p-8 border border-white/10">
+        <div class="text-2xl font-semibold mb-6">Услуги</div>
+        <div class="space-y-5 text-sm">
+          <div class="flex justify-between items-center"><span>Промо и плейлисты</span> <button onclick="orderService('Промо и плейлисты')" class="px-5 py-1.5 border border-white/20 rounded-2xl text-xs">от 25 000 ₽</button></div>
+          <div class="flex justify-between items-center"><span>SMM и визуал</span> <button onclick="orderService('SMM и визуал')" class="px-5 py-1.5 border border-white/20 rounded-2xl text-xs">от 18 000 ₽</button></div>
+          <div class="flex justify-between items-center"><span>Полный релиз-пакет</span> <button onclick="orderService('Полный релиз-пакет')" class="px-5 py-1.5 bg-[#FACC15] text-[#0B0F1C] rounded-2xl text-xs font-semibold">от 79 000 ₽</button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function submitRelease(e) { e.preventDefault(); alert('Трек принят! Свяжемся для подтверждения релиза.'); }
+    function orderService(s) { alert(`Заявка на «${s}» отправлена.`); }
+    function showUpload() { alert('Форма загрузки открыта на главной странице лейбла.'); }
+  </script>
+</body>
+</html>

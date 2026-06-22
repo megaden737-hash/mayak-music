@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Вакансии — Mayak</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body{font-family:'Inter',system_ui,sans-serif;background-color:#1E3A8A}</style>
+</head>
+<body class="bg-[#1E3A8A] text-white">
+  <nav class="fixed top-0 z-50 pt-4">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="flex items-center justify-between h-16 bg-[#1E2937] rounded-3xl px-6 shadow-lg border border-white/5">
+        <a href="index.html" class="flex items-center gap-x-3">
+          <div class="w-9 h-9 bg-white rounded-xl flex items-center justify-center flex-shrink-0">
+            <span class="font-bold text-[#0B0F1C] text-xl">M</span>
+          </div>
+          <img src="assets/images/logo2.jpg" class="w-9 h-9 object-contain rounded" alt="">
+          <span class="font-semibold text-xl tracking-tighter">Mayak</span>
+        </a>
+        <div class="flex gap-x-6 text-sm font-medium">
+          <a href="studios.html">Studios</a>
+          <a href="creation.html">Creation</a>
+          <a href="learning.html">School</a>
+          <a href="promotion.html">Label</a>
+          <a href="vacancies.html" class="text-[#84CC16] font-semibold">Vacancies</a>
+        </div>
+        <a href="account.html" class="px-4 py-1 text-sm">Cabinet</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="pt-20 max-w-7xl mx-auto px-6">
+    <div class="relative rounded-3xl overflow-hidden mb-8" style="background-image: url('assets/images/people/01-2N7MslCV1aA.jpg'); background-size: cover; background-position: center;">
+      <div class="absolute inset-0 bg-black/70 rounded-3xl"></div>
+      <div class="relative z-10 p-8">
+        <h1 class="text-6xl font-semibold tracking-tighter pt-8 text-white">Вакансии в Mayak</h1>
+      </div>
+    </div>
+    <p class="mt-2 text-xl text-white/70">Ищем людей, которые горят музыкой.</p>
+
+    <div class="mt-10 space-y-4">
+      <div class="bg-[#111827] p-7 rounded-3xl border border-white/10 flex justify-between">
+        <div>
+          <img src="assets/images/people/05-U3uS3nZuVs8.jpg" class="w-12 h-12 object-cover rounded-xl mb-2">
+          <div class="font-semibold">Звукорежиссёр</div>
+          <div class="text-sm text-white/60">Полная занятость • от 95 000 ₽</div>
+        </div>
+        <button onclick="apply('Звукорежиссёр')" class="px-6 text-sm border border-white/20 rounded-2xl">Откликнуться</button>
+      </div>
+
+      <div class="bg-[#111827] p-7 rounded-3xl border border-white/10 flex justify-between">
+        <div>
+          <div class="font-semibold">Продюсер / Битмейкер</div>
+          <div class="text-sm text-white/60">от 110 000 ₽</div>
+        </div>
+        <button onclick="apply('Продюсер')" class="px-6 text-sm border border-white/20 rounded-2xl">Откликнуться</button>
+      </div>
+
+      <div class="bg-[#111827] p-7 rounded-3xl border border-white/10 flex justify-between">
+        <div>
+          <div class="font-semibold">Менеджер по промо</div>
+          <div class="text-sm text-white/60">от 85 000 ₽</div>
+        </div>
+        <button onclick="apply('Менеджер по промо')" class="px-6 text-sm border border-white/20 rounded-2xl">Откликнуться</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function apply(role = '') {
+      const m = document.createElement('div');
+      m.className = 'fixed inset-0 bg-black/90 flex items-center justify-center z-[100] p-4';
+      m.innerHTML = `<div onclick="event.target.remove()" class="bg-[#111827] max-w-md w-full rounded-3xl p-8 border border-white/10"><div class="font-semibold mb-4">Отклик${role ? ' на «' + role + '»' : ''}</div><input placeholder="Имя" class="w-full mb-3 bg-[#0B0F1C] border border-white/10 px-4 py-3 rounded-2xl"><input placeholder="Email" class="w-full mb-3 bg-[#0B0F1C] border border-white/10 px-4 py-3 rounded-2xl"><textarea placeholder="Расскажите о себе и пришлите портфолио" class="w-full mb-4 bg-[#0B0F1C] border border-white/10 px-4 py-3 rounded-3xl" rows="3"></textarea><button onclick="this.closest('.fixed').remove(); alert('Спасибо! Мы рассмотрим вашу заявку.');" class="w-full py-3 bg-[#FACC15] text-[#0B0F1C] font-semibold rounded-2xl">Отправить</button></div>`;
+      document.body.appendChild(m);
+    }
+  </script>
+</body>
+</html>

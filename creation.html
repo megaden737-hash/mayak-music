@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Creation — Mayak Creation</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    body { font-family: 'Inter', system_ui, sans-serif; background-color: #1E3A8A; }
+    .nav-link:hover { color: #3B82F6; }
+    .beat-card { transition: all 0.2s cubic-bezier(.4,0,.2,1); }
+    .beat-card:hover { transform: translateY(-4px); }
+    .genre-pill { transition: all .1s; }
+    .genre-pill.active { background:#3B82F6; color:white; border-color:#3B82F6; }
+  </style>
+</head>
+<body class="bg-[#0B0F1C] text-white">
+  <nav class="fixed top-0 left-0 right-0 z-50 pt-4">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="flex items-center justify-between h-16 bg-[#1E2937] rounded-3xl px-6 shadow-lg border border-white/5">
+        <a href="index.html" class="flex items-center gap-x-3">
+          <div class="w-9 h-9 bg-white rounded-xl flex items-center justify-center flex-shrink-0">
+            <span class="font-bold text-[#0B0F1C] text-xl">M</span>
+          </div>
+          <span class="font-semibold text-xl tracking-tighter">Mayak Creation</span>
+        </a>
+        <div class="hidden md:flex gap-x-8 text-sm font-medium">
+          <a href="studios.html">Studios</a>
+          <a href="creation.html" class="text-[#84CC16] font-semibold">Creation</a>
+          <a href="learning.html">School</a>
+          <a href="promotion.html">Label</a>
+          <a href="vacancies.html">Vacancies</a>
+        </div>
+        <div class="flex items-center gap-3">
+          <a href="account.html" class="hidden md:flex px-4 py-1 text-sm">Cabinet</a>
+          <button onclick="showRequestModal()" class="px-5 py-2.5 rounded-2xl bg-[#84CC16] text-black text-sm font-semibold">Связаться</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="pt-20">
+    <!-- Hero background with user photo -->
+    <div class="relative max-w-7xl mx-auto px-6 pt-8 pb-10 rounded-3xl overflow-hidden" style="background-image: url('assets/images/studio-interiors/2026-05-27_20.40.16.jpg'); background-size: cover; background-position: center;">
+      <div class="absolute inset-0 bg-[#0F172A]/80"></div>
+      <div class="relative z-10 p-8">
+        <h1 class="text-6xl tracking-[-2.5px] font-semibold">4 услуги.<br>Готовые биты, песни, дизайн и съёмка контента.</h1>
+        <p class="text-lg text-white/80 mt-2 max-w-md">Покупай готовое или заказывай под ключ. Сильные лид-магниты для каждого направления.</p>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a href="#bitstore" class="bg-[#84CC16] text-black px-7 py-3 font-semibold rounded-2xl">Готовые биты</a>
+          <a href="#tracks-section" class="border border-white/40 px-7 py-3 rounded-2xl">Готовые песни</a>
+          <a href="#bitstore" class="border border-white/40 px-7 py-3 rounded-2xl">Дизайн</a>
+          <a href="#tracks-section" class="border border-white/40 px-7 py-3 rounded-2xl">Съёмка контента</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- BEATS -->
+    <div id="bitstore" class="max-w-7xl mx-auto px-6">
+      <div class="flex justify-between items-center mb-5">
+        <div>
+          <div class="font-semibold text-2xl">Готовые биты — на продажу</div>
+          <div class="text-xs text-white/50">Магазин битов • Мгновенная покупка</div>
+        </div>
+        <button onclick="showRequestModal('Заказать кастомный бит')" class="text-sm px-5 py-2 border border-white/30 rounded-2xl">Заказать кастом</button>
+      </div>
+
+      <div class="flex flex-wrap gap-2 mb-6" id="genre-filters">
+        <button onclick="filterBeats('all')" class="genre-pill active px-5 py-1 text-sm rounded-full border border-white/20 bg-white/5" data-genre="all">Все</button>
+        <button onclick="filterBeats('hiphop')" class="genre-pill px-5 py-1 text-sm rounded-full border border-white/20" data-genre="hiphop">Hip-Hop</button>
+        <button onclick="filterBeats('trap')" class="genre-pill px-5 py-1 text-sm rounded-full border border-white/20" data-genre="trap">Trap</button>
+        <button onclick="filterBeats('electronic')" class="genre-pill px-5 py-1 text-sm rounded-full border border-white/20" data-genre="electronic">Electronic</button>
+        <button onclick="filterBeats('pop')" class="genre-pill px-5 py-1 text-sm rounded-full border border-white/20" data-genre="pop">Pop</button>
+        <button onclick="filterBeats('rnb')" class="genre-pill px-5 py-1 text-sm rounded-full border border-white/20" data-genre="rnb">R&amp;B</button>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4" id="beats-grid"></div>
+    </div>
+
+    <!-- TRACKS -->
+    <div id="tracks-section" class="max-w-7xl mx-auto px-6 pt-14 pb-16">
+      <div class="font-semibold text-2xl mb-1">Готовые песни — на продажу</div>
+      <div class="text-xs text-white/50 mb-6">Лицензирование и покупка прав</div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5" id="tracks-grid"></div>
+    </div>
+
+    <!-- 4 MAIN SERVICES - Clean focused block -->
+    <div class="max-w-7xl mx-auto px-6 pt-10 pb-8">
+      <div class="text-center mb-8">
+        <div class="text-[#84CC16] uppercase text-xs tracking-[3px]">MAYAK CREATION</div>
+        <h2 class="text-4xl font-semibold tracking-tight">4 вида услуг для ваших релизов</h2>
+        <p class="mt-2 text-white/70 max-w-md mx-auto">Готовые продукты на продажу и профессиональные услуги под ключ. Всё в одном месте.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-5">
+        <!-- 1. Биты -->
+        <div class="bg-[#111827] border border-white/10 rounded-3xl p-7 group">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-9 h-9 bg-[#84CC16] text-black rounded-xl flex items-center justify-center font-bold">♪</div>
+            <div>
+              <div class="font-semibold text-xl">Готовые биты</div>
+              <div class="text-xs text-[#84CC16]">НА ПРОДАЖУ • МАРКЕТПЛЕЙС</div>
+            </div>
+          </div>
+          <p class="text-white/70 text-sm mb-4">Более 100 готовых битов в разных жанрах. Мгновенная покупка и скачивание. Эксклюзивные варианты доступны.</p>
+          <div class="flex flex-wrap gap-2 mb-5 text-xs">
+            <span class="px-3 py-1 bg-white/5 rounded-full">Trap • Hip-Hop</span>
+            <span class="px-3 py-1 bg-white/5 rounded-full">Pop • R&amp;B</span>
+            <span class="px-3 py-1 bg-white/5 rounded-full">Electronic</span>
+          </div>
+
+          <!-- Lead magnet -->
+          <div class="mb-4 p-3 bg-[#0B0F1C] rounded-2xl text-sm">
+            <div class="font-medium">🎁 Лид-магнит:</div>
+            <div class="text-white/70">Скачай 5 бесплатных битов прямо сейчас</div>
+          </div>
+
+          <div class="flex gap-3">
+            <a href="#bitstore" class="flex-1 text-center py-2.5 bg-[#84CC16] text-black font-semibold rounded-2xl text-sm">Смотреть битстор</a>
+            <button onclick="claimLeadMagnet('Бесплатный набор битов (5 шт)')" class="flex-1 py-2.5 border border-[#84CC16] text-[#84CC16] rounded-2xl text-sm font-medium">Получить бесплатно</button>
+          </div>
+        </div>
+
+        <!-- 2. Песни -->
+        <div class="bg-[#111827] border border-white/10 rounded-3xl p-7 group">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-9 h-9 bg-[#84CC16] text-black rounded-xl flex items-center justify-center font-bold">♫</div>
+            <div>
+              <div class="font-semibold text-xl">Готовые песни</div>
+              <div class="text-xs text-[#84CC16]">НА ПРОДАЖУ • ЛИЦЕНЗИРОВАНИЕ</div>
+            </div>
+          </div>
+          <p class="text-white/70 text-sm mb-4">Полноценные треки от наших артистов и продюсеров. Готовые к релизу или для синхронизации. Права на покупку.</p>
+          <div class="flex flex-wrap gap-2 mb-5 text-xs">
+            <span class="px-3 py-1 bg-white/5 rounded-full">Поп • Инди</span>
+            <span class="px-3 py-1 bg-white/5 rounded-full">Хип-хоп • R&amp;B</span>
+            <span class="px-3 py-1 bg-white/5 rounded-full">Электроника</span>
+          </div>
+
+          <!-- Lead magnet -->
+          <div class="mb-4 p-3 bg-[#0B0F1C] rounded-2xl text-sm">
+            <div class="font-medium">🎁 Лид-магнит:</div>
+            <div class="text-white/70">Бесплатный каталог из 12 готовых песен + цены</div>
+          </div>
+
+          <div class="flex gap-3">
+            <a href="#tracks-section" class="flex-1 text-center py-2.5 bg-[#84CC16] text-black font-semibold rounded-2xl text-sm">Смотреть песни</a>
+            <button onclick="claimLeadMagnet('Бесплатный каталог песен')" class="flex-1 py-2.5 border border-[#84CC16] text-[#84CC16] rounded-2xl text-sm font-medium">Получить каталог</button>
+          </div>
+        </div>
+
+        <!-- 3. Дизайн для релизов -->
+        <div class="bg-[#111827] border border-white/10 rounded-3xl p-7 group">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-9 h-9 bg-[#84CC16] text-black rounded-xl flex items-center justify-center font-bold">◈</div>
+            <div>
+              <div class="font-semibold text-xl">Дизайн для релизов</div>
+              <div class="text-xs text-[#84CC16]">ОБЛОЖКИ • АНИМАЦИИ • ВИЗУАЛЫ</div>
+            </div>
+          </div>
+          <p class="text-white/70 text-sm mb-4">Профессиональные обложки, анимации, визуальные пакеты и оформление для всех платформ. Быстрые сроки и правки.</p>
+
+          <ul class="text-sm text-white/70 mb-5 space-y-1">
+            <li>• Обложки и анимации</li>
+            <li>• Визуалы для VK, Spotify, Apple</li>
+            <li>• Полный дизайн под ключ</li>
+          </ul>
+
+          <!-- Lead magnet -->
+          <div class="mb-4 p-3 bg-[#0B0F1C] rounded-2xl text-sm">
+            <div class="font-medium">🎁 Лид-магнит:</div>
+            <div class="text-white/70">Бесплатный шаблон обложки + гайд по дизайну</div>
+          </div>
+
+          <div class="flex gap-3">
+            <button onclick="showRequestModal('Дизайн для релиза')" class="flex-1 text-center py-2.5 bg-[#84CC16] text-black font-semibold rounded-2xl text-sm">Заказать дизайн</button>
+            <button onclick="claimLeadMagnet('Шаблон обложки + гайд')" class="flex-1 py-2.5 border border-[#84CC16] text-[#84CC16] rounded-2xl text-sm font-medium">Получить бесплатно</button>
+          </div>
+        </div>
+
+        <!-- 4. Съёмка контента -->
+        <div class="bg-[#111827] border border-white/10 rounded-3xl p-7 group">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-9 h-9 bg-[#84CC16] text-black rounded-xl flex items-center justify-center font-bold">📹</div>
+            <div>
+              <div class="font-semibold text-xl">Съёмка контента</div>
+              <div class="text-xs text-[#84CC16]">ДЛЯ РЕЛИЗОВ И ПРОДВИЖЕНИЯ</div>
+            </div>
+          </div>
+          <p class="text-white/70 text-sm mb-4">Съёмки клипов, сниппетов, рилсов, фото и вертикального контента специально под музыкальные релизы.</p>
+
+          <ul class="text-sm text-white/70 mb-5 space-y-1">
+            <li>• Клипы и сниппеты</li>
+            <li>• Рилсы и Stories</li>
+            <li>• Фотосессии и визуалы</li>
+          </ul>
+
+          <!-- Lead magnet -->
+          <div class="mb-4 p-3 bg-[#0B0F1C] rounded-2xl text-sm">
+            <div class="font-medium">🎁 Лид-магнит:</div>
+            <div class="text-white/70">30 идей для контента под релиз (PDF)</div>
+          </div>
+
+          <div class="flex gap-3">
+            <button onclick="showRequestModal('Съёмка контента для релиза')" class="flex-1 text-center py-2.5 bg-[#84CC16] text-black font-semibold rounded-2xl text-sm">Заказать съёмку</button>
+            <button onclick="claimLeadMagnet('30 идей для контента')" class="flex-1 py-2.5 border border-[#84CC16] text-[#84CC16] rounded-2xl text-sm font-medium">Получить гайд</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <!-- Additional lead CTA -->
+  <div class="max-w-7xl mx-auto px-6 py-8 text-center border-t border-white/10">
+    <p class="text-white/70">Нужно что-то особенное под ваш релиз? Мы сделаем под ключ.</p>
+    <button onclick="showRequestModal('Индивидуальный проект')" class="mt-4 px-8 py-3 bg-white text-[#0B0F1C] font-semibold rounded-2xl">Обсудить индивидуальный проект</button>
+  </div>
+
+  <!-- Modals -->
+  <div id="beat-modal" onclick="if (event.target.id === 'beat-modal') hideBeatModal()" class="hidden fixed inset-0 bg-black/90 z-[90] items-center justify-center p-4">
+    <div onclick="event.stopImmediatePropagation()" class="modal bg-[#111827] w-full max-w-lg rounded-3xl p-8 border border-white/10"></div>
+  </div>
+
+  <div id="request-modal" onclick="if (event.target.id==='request-modal') hideRequestModal()" class="hidden fixed inset-0 bg-black/90 z-[100] flex items-center justify-center p-4">
+    <div onclick="event.stopImmediatePropagation()" class="bg-[#111827] w-full max-w-md rounded-3xl p-7 border border-white/10">
+      <div class="flex justify-between mb-6"><div class="font-semibold text-xl">Оставить заявку</div><button onclick="hideRequestModal()" class="text-2xl">×</button></div>
+      <form id="req-form" onsubmit="submitWorkspaceRequest(event)">
+        <input type="hidden" id="req-type">
+        <div class="space-y-4">
+          <input id="req-name" required placeholder="Имя" class="w-full bg-[#0B0F1C] border border-white/10 px-4 py-3 rounded-2xl">
+          <div class="grid grid-cols-2 gap-4">
+            <input id="req-phone" value="+7 " class="w-full bg-[#0B0F1C] border border-white/10 px-4 py-3 rounded-2xl">
+            <input id="req-email" required type="email" placeholder="Email" class="w-full bg-[#0B0F1C] border border-white/10 px-4 py-3 rounded-2xl">
+          </div>
+          <textarea id="req-details" rows="3" placeholder="Жанр, BPM, референсы..." class="w-full bg-[#0B0F1C] border border-white/10 px-4 py-3 rounded-3xl"></textarea>
+          <button class="w-full py-3.5 bg-[#FACC15] text-[#0B0F1C] rounded-2xl font-semibold">Отправить</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    let beats = [
+      {id:1,title:"Тёмный горизонт",genre:"trap",bpm:138,price:9900,exclusive:false,key:"C#m",image:"assets/images/covers/beat-cover-hiphop.jpg"},
+      {id:2,title:"Северный ветер",genre:"hiphop",bpm:92,price:7900,exclusive:false,key:"F#m",image:"assets/images/covers/beat-cover-hiphop.jpg"},
+      {id:3,title:"Neon Drift",genre:"electronic",bpm:128,price:11900,exclusive:true,key:"G",image:"assets/images/covers/beat-cover-electronic.jpg"},
+      {id:4,title:"Москва 3:00",genre:"trap",bpm:145,price:6900,exclusive:false,key:"Dm",image:"assets/images/covers/beat-cover-hiphop.jpg"},
+      {id:5,title:"Падаю вверх",genre:"pop",bpm:115,price:8900,exclusive:false,key:"A",image:"assets/images/covers/beat-cover-acoustic.jpg"},
+      {id:6,title:"Тишина в голове",genre:"rnb",bpm:82,price:8500,exclusive:false,key:"Bm",image:"assets/images/covers/beat-cover-acoustic.jpg"},
+      {id:7,title:"Грань",genre:"hiphop",bpm:87,price:7500,exclusive:false,key:"F",image:"assets/images/covers/beat-cover-hiphop.jpg"},
+      {id:8,title:"Стеклянный лес",genre:"electronic",bpm:134,price:10500,exclusive:false,key:"E",image:"assets/images/covers/beat-cover-electronic.jpg"},
+      {id:9,title:"Звёздная пыль",genre:"pop",bpm:102,price:12900,exclusive:true,key:"C",image:"assets/images/covers/beat-cover-acoustic.jpg"},
+      {id:10,title:"Последний рассвет",genre:"trap",bpm:152,price:5900,exclusive:false,key:"Am",image:"assets/images/covers/beat-cover-hiphop.jpg"},
+      {id:11,title:"Heartcode",genre:"rnb",bpm:78,price:9500,exclusive:false,key:"Gm",image:"assets/images/covers/beat-cover-acoustic.jpg"},
+      {id:12,title:"Cold Static",genre:"electronic",bpm:140,price:9900,exclusive:false,key:"B",image:"assets/images/covers/beat-cover-electronic.jpg"},
+      {id:13,title:"Дым над городом",genre:"hiphop",bpm:95,price:7200,exclusive:false,key:"Dm",image:"assets/images/covers/beat-cover-hiphop.jpg"},
+      {id:14,title:"Pulse",genre:"electronic",bpm:125,price:8800,exclusive:false,key:"F",image:"assets/images/covers/beat-cover-electronic.jpg"},
+      {id:15,title:"Ты и я",genre:"pop",bpm:108,price:9900,exclusive:false,key:"G",image:"assets/images/covers/beat-cover-acoustic.jpg"},
+      {id:16,title:"Deep Blue",genre:"rnb",bpm:75,price:10500,exclusive:false,key:"Em",image:"assets/images/covers/beat-cover-acoustic.jpg"},
+      {id:17,title:"Night Run",genre:"trap",bpm:150,price:6500,exclusive:false,key:"C#m",image:"assets/images/covers/beat-cover-hiphop.jpg"},
+      {id:18,title:"Solar",genre:"electronic",bpm:132,price:11200,exclusive:false,key:"A",image:"assets/images/covers/beat-cover-electronic.jpg"},
+    ];
+
+    let readyTracks = [
+      {id:1,title:"Светофор",artist:"Amin",genre:"Hip-Hop",price:24900,duration:"2:54",image:"assets/images/news/news-celebration.jpg"},
+      {id:2,title:"Океан",artist:"LUNA",genre:"Indie Pop",price:39000,duration:"3:41",image:"assets/images/merch/vinyl.jpg"},
+      {id:3,title:"Ветер в голове",artist:"Mayak Collective",genre:"Electronic",price:15900,duration:"4:02",image:"assets/images/covers/beat-cover-electronic.jpg"},
+      {id:4,title:"Не отпускай",artist:"Nika Nova",genre:"Pop",price:18500,duration:"3:12",image:"assets/images/news/video-shoot.jpg"},
+      {id:5,title:"Гроза",artist:"Amin",genre:"Trap",price:17900,duration:"2:48",image:"assets/images/covers/beat-cover-hiphop.jpg"},
+      {id:6,title:"Тишина",artist:"LUNA",genre:"R&amp;B",price:22500,duration:"3:55",image:"assets/images/artists/vocal-session.jpg"},
+      {id:7,title:"Холодный свет",artist:"Mayak Beats",genre:"Electronic",price:14500,duration:"4:20",image:"assets/images/covers/beat-cover-electronic.jpg"},
+      {id:8,title:"Последний",artist:"Nika Nova",genre:"Pop",price:19900,duration:"3:30",image:"assets/images/danya-mayak-grustny-pop.jpg"},
+    ];
+
+    function renderBeats(list) {
+      const grid = document.getElementById('beats-grid');
+      grid.innerHTML = '';
+      list.forEach(b => {
+        const el = document.createElement('div');
+        el.className = `beat-card bg-[#111827] border border-white/10 rounded-3xl overflow-hidden`;
+        el.innerHTML = `
+          <div class="relative">
+            <img src="${b.image}" class="w-full aspect-square object-cover">
+            ${b.exclusive ? `<div class="absolute top-3 right-3 text-[10px] px-2 py-px bg-red-600/90 rounded font-medium">EXCLUSIVE</div>` : ''}
+            <button onclick="playPreview(${b.id}, this); event.stopImmediatePropagation()" class="absolute bottom-3 right-3 bg-[#0B0F1C]/80 hover:bg-[#FACC15] hover:text-[#0B0F1C] w-9 h-9 flex items-center justify-center rounded-full">
+              <i class="fa-solid fa-play ml-0.5"></i>
+            </button>
+          </div>
+          <div class="p-4">
+            <div class="flex justify-between">
+              <div>
+                <div class="font-semibold">${b.title}</div>
+                <div class="text-xs text-white/50">${b.key} • ${b.bpm} BPM</div>
+              </div>
+              <div class="font-semibold tabular-nums text-right">${b.price.toLocaleString('ru')} ₽</div>
+            </div>
+            <div class="flex gap-2 mt-4">
+              <button onclick="buyBeat(${b.id}); event.stopImmediatePropagation()" class="flex-1 bg-white text-[#0B0F1C] py-2 text-sm font-medium rounded-2xl">Купить</button>
+              <button onclick="showBeatModal(${b.id}); event.stopImmediatePropagation()" class="flex-1 border border-white/20 py-2 text-sm rounded-2xl">Подробнее</button>
+            </div>
+          </div>`;
+        el.onclick = () => showBeatModal(b.id);
+        grid.appendChild(el);
+      });
+    }
+
+    function renderTracks() {
+      const grid = document.getElementById('tracks-grid');
+      grid.innerHTML = '';
+      readyTracks.forEach(t => {
+        const el = document.createElement('div');
+        el.className = `beat-card bg-[#111827] border border-white/10 rounded-3xl overflow-hidden`;
+        el.innerHTML = `
+          <img src="${t.image}" class="w-full h-52 object-cover">
+          <div class="p-4">
+            <div class="flex justify-between">
+              <div><div class="font-semibold">${t.title}</div><div class="text-sm text-white/60">${t.artist}</div></div>
+              <div class="text-right text-sm"><div>${t.genre}</div><div class="font-semibold">${t.price.toLocaleString('ru')} ₽</div></div>
+            </div>
+            <div class="mt-4 flex gap-2">
+              <button onclick="buyTrack(${t.id}, event)" class="flex-1 bg-white text-[#0B0F1C] py-2 text-sm font-medium rounded-2xl">Купить</button>
+              <button onclick="showTrackModal(${t.id}, event)" class="flex-1 border border-white/20 rounded-2xl py-2 text-sm">Послушать</button>
+            </div>
+          </div>`;
+        grid.appendChild(el);
+      });
+    }
+
+    function filterBeats(g) {
+      document.querySelectorAll('#genre-filters button').forEach(b => b.classList.remove('active'));
+      const active = document.querySelector(`#genre-filters button[data-genre="${g}"]`) || document.querySelector('#genre-filters button');
+      active.classList.add('active');
+
+      const filtered = g === 'all' ? beats : beats.filter(x => x.genre === g);
+      renderBeats(filtered);
+    }
+
+    let currentOsc = null;
+    function playPreview(id, btn) {
+      event.stopImmediatePropagation();
+      if (currentOsc) {
+        try { currentOsc.stop(); } catch(e){}
+        currentOsc = null;
+      }
+
+      const b = beats.find(x => x.id === id);
+      btn.innerHTML = '<i class="fa-solid fa-pause"></i>';
+
+      const ctx = new (window.AudioContext || window.webkitAudioContext)();
+      const osc = ctx.createOscillator();
+      const g = ctx.createGain();
+      const f = ctx.createBiquadFilter();
+
+      osc.type = 'sawtooth';
+      osc.frequency.value = 55 + (b.bpm - 90) * 1.2;
+      f.type = 'lowpass';
+      f.frequency.value = 1100;
+      g.gain.value = 0.06;
+
+      osc.connect(f).connect(g).connect(ctx.destination);
+      osc.start();
+
+      currentOsc = osc;
+
+      setTimeout(() => {
+        try { osc.stop(); } catch(e){}
+        btn.innerHTML = '<i class="fa-solid fa-play ml-0.5"></i>';
+        currentOsc = null;
+      }, 8200);
+    }
+
+    function showBeatModal(id) {
+      const b = beats.find(x => x.id === id);
+      const modal = document.getElementById('beat-modal');
+      modal.querySelector('.modal').innerHTML = `
+        <div>
+          <img src="${b.image}" class="w-full rounded-2xl aspect-video mb-5 object-cover">
+          <div class="flex justify-between items-start">
+            <div>
+              <div class="text-xs text-[#3B82F6]">${b.genre.toUpperCase()} • ${b.bpm} BPM</div>
+              <div class="text-2xl font-semibold">${b.title}</div>
+              <div class="text-white/60">${b.key}</div>
+            </div>
+            <div class="text-right">
+              <div class="text-xs text-white/50">ЦЕНА</div>
+              <div class="font-semibold text-2xl">${b.price.toLocaleString('ru')} ₽</div>
+            </div>
+          </div>
+
+          <div class="flex gap-3 mt-7">
+            <button onclick="buyBeat(${b.id}); hideBeatModal()" class="flex-1 bg-[#FACC15] py-3 text-[#0B0F1C] font-semibold rounded-2xl">Купить бит</button>
+            <button onclick="buyBeat(${b.id}, true); hideBeatModal()" class="flex-1 border border-white/30 rounded-2xl">Эксклюзив</button>
+          </div>
+          <button onclick="hideBeatModal(); showRequestModal('Кастомизация бита')" class="w-full mt-3 py-3 text-sm border border-white/20 rounded-2xl">Заказать доработку</button>
+        </div>`;
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+    function hideBeatModal() {
+      document.getElementById('beat-modal').classList.remove('flex');
+      document.getElementById('beat-modal').classList.add('hidden');
+    }
+
+    function buyBeat(id, ex = false) {
+      const b = beats.find(x => x.id === id);
+      let p = ex ? Math.round(b.price * 1.4) : b.price;
+      hideBeatModal();
+      showToast(`Бит «${b.title}» добавлен. ${p.toLocaleString('ru')} ₽`);
+    }
+    function buyTrack(id, ev) {
+      ev.stopImmediatePropagation();
+      const t = readyTracks.find(x => x.id === id);
+      showToast(`Трек «${t.title}» добавлен. ${t.price.toLocaleString('ru')} ₽`);
+    }
+    function showTrackModal(id, ev) {
+      ev.stopImmediatePropagation();
+      const t = readyTracks.find(x => x.id === id);
+      const modal = document.getElementById('beat-modal');
+      modal.querySelector('.modal').innerHTML = `
+        <div>
+          <img src="${t.image}" class="w-full rounded-2xl mb-5">
+          <div class="font-semibold text-2xl">${t.title}</div>
+          <div class="text-white/70">${t.artist} • ${t.genre}</div>
+          <div class="text-4xl font-semibold mt-3">${t.price.toLocaleString('ru')} ₽</div>
+          <div class="flex gap-3 mt-6">
+            <button onclick="buyTrack(${t.id}, {stopImmediatePropagation:()=>{} }); hideBeatModal()" class="flex-1 py-3 bg-[#FACC15] text-[#0B0F1C] font-semibold rounded-2xl">Купить песню</button>
+            <button onclick="hideBeatModal(); showRequestModal()" class="flex-1 border border-white/30 py-3 rounded-2xl">Запросить права</button>
+          </div>
+        </div>`;
+      modal.classList.remove('hidden'); modal.classList.add('flex');
+    }
+
+    function showRequestModal(t = '') {
+      const m = document.getElementById('request-modal');
+      m.classList.remove('hidden');
+      m.classList.add('flex');
+      document.getElementById('req-type').value = t;
+    }
+    function hideRequestModal() {
+      document.getElementById('request-modal').classList.add('hidden');
+      document.getElementById('request-modal').classList.remove('flex');
+    }
+    function submitWorkspaceRequest(e) {
+      e.preventDefault();
+      hideRequestModal();
+      showToast('Заявка отправлена! Мы ответим в течение часа.');
+    }
+    function showToast(msg) {
+      const t = document.createElement('div');
+      t.className = 'fixed bottom-5 left-1/2 -translate-x-1/2 bg-white text-[#0B0F1C] px-7 py-3 rounded-3xl text-sm font-medium z-50';
+      t.textContent = msg;
+      document.body.appendChild(t);
+      setTimeout(() => t.remove(), 3400);
+    }
+
+    function init() {
+      renderBeats(beats);
+      renderTracks();
+    }
+    window.onload = init;
+
+    function claimLeadMagnet(magnetName) {
+      const toast = document.createElement('div');
+      toast.className = 'fixed bottom-6 left-1/2 -translate-x-1/2 bg-[#84CC16] text-black px-7 py-3 text-sm font-medium rounded-3xl z-[200]';
+      toast.textContent = `${magnetName} — отправим на почту после заполнения формы!`;
+      document.body.appendChild(toast);
+      setTimeout(() => toast.remove(), 3200);
+
+      // Open request modal prefilled with the lead magnet
+      setTimeout(() => {
+        showRequestModal(magnetName);
+      }, 600);
+    }
+
+    function submitBonusForm(e) {
+      e.preventDefault();
+      const toast = document.createElement('div');
+      toast.className = 'fixed bottom-6 left-1/2 -translate-x-1/2 bg-[#84CC16] text-black px-7 py-3 text-sm font-medium rounded-3xl';
+      toast.textContent = 'Бонус получен! Мы свяжемся с вами.';
+      document.body.appendChild(toast);
+      setTimeout(() => toast.remove(), 3000);
+      e.target.reset();
+    }
+  </script>
+
+</body>
+</html>

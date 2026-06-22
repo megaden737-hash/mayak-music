@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Работа с нами — Mayak Music</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body{font-family:'Inter',system_ui,sans-serif}</style>
+</head>
+<body class="bg-[#0B0F1C] text-white">
+  <nav class="fixed top-0 z-50 w-full bg-[#0B0F1C]/95 border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <a href="index.html" class="font-semibold text-xl tracking-tighter">MAYAK</a>
+      <a href="merch.html" class="text-sm">Мерч</a>
+      <button onclick="apply()" class="bg-[#FACC15] text-[#0B0F1C] px-6 py-2.5 rounded-2xl text-sm font-semibold">Откликнуться</button>
+    </div>
+  </nav>
+
+  <div class="pt-20 max-w-7xl mx-auto px-6">
+    <h1 class="text-6xl font-semibold tracking-tighter pt-8">Работа в Mayak Music</h1>
+    <p class="mt-2 text-xl text-white/70">Ищем людей, которые горят музыкой.</p>
+
+    <div class="mt-10 space-y-4">
+      <div class="bg-[#111827] p-7 rounded-3xl border border-white/10 flex justify-between">
+        <div>
+          <div class="font-semibold">Звукорежиссёр</div>
+          <div class="text-sm text-white/60">Полная занятость • от 95 000 ₽</div>
+        </div>
+        <button onclick="apply('Звукорежиссёр')" class="px-6 text-sm border border-white/20 rounded-2xl">Откликнуться</button>
+      </div>
+
+      <div class="bg-[#111827] p-7 rounded-3xl border border-white/10 flex justify-between">
+        <div>
+          <div class="font-semibold">Продюсер / Битмейкер</div>
+          <div class="text-sm text-white/60">от 110 000 ₽</div>
+        </div>
+        <button onclick="apply('Продюсер')" class="px-6 text-sm border border-white/20 rounded-2xl">Откликнуться</button>
+      </div>
+
+      <div class="bg-[#111827] p-7 rounded-3xl border border-white/10 flex justify-between">
+        <div>
+          <div class="font-semibold">Менеджер по промо</div>
+          <div class="text-sm text-white/60">от 85 000 ₽</div>
+        </div>
+        <button onclick="apply('Менеджер по промо')" class="px-6 text-sm border border-white/20 rounded-2xl">Откликнуться</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function apply(role = '') {
+      const m = document.createElement('div');
+      m.className = 'fixed inset-0 bg-black/90 flex items-center justify-center z-[100] p-4';
+      m.innerHTML = `<div onclick="event.target.remove()" class="bg-[#111827] max-w-md w-full rounded-3xl p-8 border border-white/10"><div class="font-semibold mb-4">Отклик${role ? ' на «' + role + '»' : ''}</div><input placeholder="Имя" class="w-full mb-3 bg-[#0B0F1C] border border-white/10 px-4 py-3 rounded-2xl"><input placeholder="Email" class="w-full mb-3 bg-[#0B0F1C] border border-white/10 px-4 py-3 rounded-2xl"><textarea placeholder="Расскажите о себе и пришлите портфолио" class="w-full mb-4 bg-[#0B0F1C] border border-white/10 px-4 py-3 rounded-3xl" rows="3"></textarea><button onclick="this.closest('.fixed').remove(); alert('Спасибо! Мы рассмотрим вашу заявку.');" class="w-full py-3 bg-[#FACC15] text-[#0B0F1C] font-semibold rounded-2xl">Отправить</button></div>`;
+      document.body.appendChild(m);
+    }
+  </script>
+</body>
+</html>

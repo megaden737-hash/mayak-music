@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Label — Mayak Label</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body{font-family:'Inter',system_ui,sans-serif;background-color:#1E3A8A}</style>
+</head>
+<body class="bg-[#1E3A8A] text-white">
+  <nav class="fixed top-0 left-0 right-0 z-50 pt-4">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="flex items-center justify-between h-16 bg-[#1E2937] rounded-3xl px-6 shadow-lg border border-white/5">
+        <a href="index.html" class="flex items-center gap-x-3">
+          <div class="w-9 h-9 bg-white rounded-xl flex items-center justify-center flex-shrink-0">
+            <span class="font-bold text-[#0B0F1C] text-xl">M</span>
+          </div>
+          <span class="font-semibold text-xl tracking-tighter">Mayak Label</span>
+        </a>
+      <div class="flex gap-x-7 text-sm">
+        <a href="studios.html">Studios</a>
+        <a href="creation.html">Creation</a>
+        <a href="learning.html">School</a>
+        <a href="promotion.html" class="text-[#84CC16] font-semibold">Label</a>
+        <a href="vacancies.html">Vacancies</a>
+      </div>
+      <button onclick="showUpload()" class="bg-[#84CC16] text-[#0B0F1C] px-6 py-2.5 rounded-2xl font-semibold text-sm">Загрузить трек</button>
+    </div>
+  </nav>
+
+  <div class="pt-20 max-w-7xl mx-auto px-6">
+    <div class="relative rounded-3xl overflow-hidden mb-6" style="background-image: url('assets/images/studio-interiors/2026-05-27 20.40.46.jpg'); background-size: cover; background-position: center;">
+      <div class="absolute inset-0 bg-black/70 rounded-3xl"></div>
+      <div class="relative z-10 p-8">
+        <h1 class="text-7xl tracking-[-3px] font-semibold text-white pt-4">Mayak Promotion<br>Выпустите музыку. Мы сделаем остальное.</h1>
+      </div>
+    </div>
+
+    <div class="grid lg:grid-cols-2 gap-6 mt-10">
+      <div class="bg-[#111827] rounded-3xl p-8 border border-white/10">
+        <img src="assets/images/people/04-4QPt-rj-BrA.jpg" class="w-full h-32 object-cover rounded-2xl mb-4">
+        <div class="text-2xl font-semibold">Дистрибуция</div>
+        <div class="text-sm text-white/70 mt-2">Spotify, Apple, VK, Яндекс, TikTok + 150 сервисов. Релиз за 1–3 дня.</div>
+        <form onsubmit="submitRelease(event)" class="mt-6">
+          <input placeholder="Название трека" class="mb-3 w-full rounded-2xl bg-[#0B0F1C] border border-white/10 px-4 py-3">
+          <input placeholder="Артист" class="mb-3 w-full rounded-2xl bg-[#0B0F1C] border border-white/10 px-4 py-3">
+          <div class="text-xs mb-2">Загрузите MP3/WAV</div>
+          <input type="file" class="mb-4">
+          <button class="w-full py-3.5 rounded-2xl bg-[#84CC16] text-[#0B0F1C] font-semibold">Отправить на релиз — 3 900 ₽</button>
+        </form>
+      </div>
+
+      <div class="bg-[#111827] rounded-3xl p-8 border border-white/10">
+        <div class="text-2xl font-semibold mb-6">Услуги</div>
+        <div class="space-y-5 text-sm">
+          <div class="flex justify-between items-center"><span>Промо и плейлисты</span> <button onclick="orderService('Промо и плейлисты')" class="px-5 py-1.5 border border-white/20 rounded-2xl text-xs">от 25 000 ₽</button></div>
+          <div class="flex justify-between items-center"><img src="assets/images/people/19-XllRRg7RmhM.jpg" class="w-8 h-8 rounded object-cover mr-2"><span>SMM и визуал</span> <button onclick="orderService('SMM и визуал')" class="px-5 py-1.5 border border-white/20 rounded-2xl text-xs">от 18 000 ₽</button></div>
+          <div class="flex justify-between items-center"><span>Полный релиз-пакет</span> <button onclick="orderService('Полный релиз-пакет')" class="px-5 py-1.5 bg-[#84CC16] text-[#0B0F1C] rounded-2xl text-xs font-semibold">от 79 000 ₽</button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function submitRelease(e) { e.preventDefault(); alert('Трек принят! Свяжемся для подтверждения релиза.'); }
+    function orderService(s) { alert(`Заявка на «${s}» отправлена.`); }
+    function showUpload() { alert('Форма загрузки открыта на главной странице лейбла.'); }
+  </script>
+</body>
+</html>

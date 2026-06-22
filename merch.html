@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Мерч — Mayak Music</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body{font-family:'Inter',system_ui,sans-serif}</style>
+</head>
+<body class="bg-[#0B0F1C] text-white">
+  <nav class="fixed top-0 w-full bg-[#0B0F1C]/95 border-b border-white/10 z-50">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <a href="index.html" class="font-semibold text-xl">MAYAK MERCH</a>
+      <button onclick="showCart()" class="flex items-center gap-2 px-4 py-2 border border-white/20 rounded-2xl">
+        <i class="fa-solid fa-shopping-bag"></i> <span id="cart-count">0</span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="pt-20 max-w-7xl mx-auto px-6">
+    <div class="py-10">
+      <h1 class="text-7xl tracking-[-2.5px] font-semibold">Мерч Mayak</h1>
+      <p class="text-lg text-white/70">Минималистичные вещи с характером.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div class="bg-[#111827] rounded-3xl overflow-hidden border border-white/10">
+        <img src="assets/images/merch/merch-hoodie.jpg" class="w-full aspect-square object-cover">
+        <div class="p-5 flex justify-between items-end">
+          <div>
+            <div class="font-semibold">Hoodie Essential</div>
+            <div class="text-xs text-white/60">Чёрный, золотая вышивка</div>
+          </div>
+          <div class="text-right">
+            <div class="font-semibold">7 900 ₽</div>
+            <button onclick="addToCart('Hoodie Essential',7900)" class="mt-1 px-5 py-1 text-xs bg-white text-[#0B0F1C] rounded-xl">В корзину</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-[#111827] rounded-3xl overflow-hidden border border-white/10">
+        <img src="assets/images/merch/merch-tshirt.jpg" class="w-full aspect-square object-cover">
+        <div class="p-5 flex justify-between items-end">
+          <div>
+            <div class="font-semibold">Oversized Tee</div>
+            <div class="text-xs text-white/60">Чёрный</div>
+          </div>
+          <div class="text-right">
+            <div class="font-semibold">3 400 ₽</div>
+            <button onclick="addToCart('Oversized Tee',3400)" class="mt-1 px-5 py-1 text-xs bg-white text-[#0B0F1C] rounded-xl">В корзину</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-[#111827] rounded-3xl overflow-hidden border border-white/10">
+        <img src="assets/images/merch/merch-cap.jpg" class="w-full aspect-square object-cover">
+        <div class="p-5 flex justify-between items-end">
+          <div>
+            <div class="font-semibold">Cap Signature</div>
+            <div class="text-xs text-white/60">Чёрная</div>
+          </div>
+          <div class="text-right">
+            <div class="font-semibold">2 400 ₽</div>
+            <button onclick="addToCart('Cap Signature',2400)" class="mt-1 px-5 py-1 text-xs bg-white text-[#0B0F1C] rounded-xl">В корзину</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-[#111827] rounded-3xl overflow-hidden border border-white/10">
+        <img src="assets/images/merch/vinyl.jpg" class="w-full aspect-square object-cover">
+        <div class="p-5 flex justify-between items-end">
+          <div>
+            <div class="font-semibold">Limited Vinyl</div>
+            <div class="text-xs text-white/60">«Светофор»</div>
+          </div>
+          <div class="text-right">
+            <div class="font-semibold">6 200 ₽</div>
+            <button onclick="addToCart('Limited Vinyl',6200)" class="mt-1 px-5 py-1 text-xs bg-white text-[#0B0F1C] rounded-xl">В корзину</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="cart-drawer" onclick="if(event.target.id==='cart-drawer') hideCart()" class="hidden fixed inset-0 bg-black/80 z-[120]">
+    <div onclick="event.stopImmediatePropagation()" class="absolute right-0 top-0 h-full w-full max-w-sm bg-[#111827] p-7 border-l border-white/10">
+      <div class="flex justify-between mb-6">
+        <div class="text-xl font-semibold">Корзина</div>
+        <button onclick="hideCart()" class="text-3xl leading-none">×</button>
+      </div>
+      <div id="cart-items"></div>
+      <div class="mt-auto pt-8">
+        <div class="flex justify-between text-lg"><span>Итого</span> <span id="cart-total" class="font-semibold"></span></div>
+        <button onclick="checkout()" class="mt-5 w-full py-3 bg-[#FACC15] text-[#0B0F1C] font-semibold rounded-2xl">Оформить заказ</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let cart = [];
+    function addToCart(name, price) {
+      cart.push({name, price});
+      document.getElementById('cart-count').innerText = cart.length;
+    }
+    function showCart() {
+      const d = document.getElementById('cart-drawer');
+      const items = document.getElementById('cart-items');
+      items.innerHTML = '';
+      let total = 0;
+      cart.forEach((it,i) => {
+        total += it.price;
+        items.innerHTML += `<div class="flex justify-between py-2 border-b border-white/10"><span>${it.name}</span><span>${it.price} ₽ <button onclick="removeItem(${i})" class="text-white/40 ml-2">×</button></span></div>`;
+      });
+      document.getElementById('cart-total').innerText = total + ' ₽';
+      d.classList.remove('hidden');
+      d.classList.add('flex');
+    }
+    function removeItem(i) {
+      cart.splice(i,1);
+      document.getElementById('cart-count').innerText = cart.length;
+      showCart();
+    }
+    function hideCart() {
+      document.getElementById('cart-drawer').classList.remove('flex');
+      document.getElementById('cart-drawer').classList.add('hidden');
+    }
+    function checkout() {
+      hideCart();
+      alert('Заказ оформлен! Спасибо.');
+      cart = [];
+      document.getElementById('cart-count').innerText = '0';
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Площадки — Mayak Music</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>body{font-family:'Inter',system_ui,sans-serif}.nav-link:hover{color:#3B82F6}</style>
+</head>
+<body class="bg-[#0B0F1C] text-white">
+  <nav class="fixed top-0 w-full z-50 bg-[#0B0F1C]/95 border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-x-3">
+        <div class="w-9 h-9 bg-white rounded-xl flex items-center justify-center"><span class="font-bold text-[#0B0F1C] text-xl">M</span></div>
+        <span class="font-semibold text-xl tracking-tighter">MAYAK</span>
+      </a>
+      <div class="hidden md:flex gap-x-8 text-sm font-medium">
+        <a href="index.html" class="nav-link">Главная</a>
+        <a href="places.html" class="nav-link text-[#3B82F6]">Площадки</a>
+        <a href="workspace.html" class="nav-link">Workspace</a>
+        <a href="school.html" class="nav-link">Школа</a>
+        <a href="label.html" class="nav-link">Лейбл</a>
+        <a href="merch.html" class="nav-link">Мерч</a>
+      </div>
+      <button onclick="showRequestModal()" class="px-6 py-2.5 bg-[#FACC15] text-[#0B0F1C] rounded-2xl text-sm font-semibold">Забронировать</button>
+    </div>
+  </nav>
+
+  <div class="pt-20 max-w-7xl mx-auto px-6">
+    <div class="pt-8 pb-8">
+      <div class="text-[#FACC15] text-sm tracking-[2px]">БОЛОТНАЯ НАБЕРЕЖНАЯ • МОСКВА</div>
+      <h1 class="text-7xl font-semibold tracking-[-2.5px]">Наши площадки</h1>
+    </div>
+
+    <!-- Small -->
+    <div class="minimal-card bg-[#111827] border border-white/10 rounded-3xl mb-8 overflow-hidden">
+      <div class="grid lg:grid-cols-5">
+        <div class="p-8 lg:col-span-2">
+          <div class="text-[#3B82F6] text-xs tracking-widest">МАЛЕНЬКАЯ СТУДИЯ</div>
+          <div class="text-5xl tracking-tight font-semibold">Маяк Small</div>
+          <div class="mt-1 text-3xl font-mono text-white/90">3 800 ₽ <span class="text-sm">/ час</span></div>
+          <div class="text-sm text-white/70 mt-4">Идеально для вокала, подкастов и сольных сессий. 18 м².</div>
+          
+          <div class="mt-7">
+            <button onclick="bookStudio('Маяк Small')" class="w-full py-3.5 bg-[#FACC15] text-[#0B0F1C] font-semibold rounded-2xl">Забронировать</button>
+            <button onclick="showGalleryModal('small')" class="mt-2 w-full border border-white/20 py-2.5 text-sm rounded-2xl">Галерея</button>
+          </div>
+        </div>
+        <div class="lg:col-span-3 grid grid-cols-2 gap-px bg-white/10">
+          <img src="assets/images/studios/small/studio-small.jpg" class="w-full h-full object-cover">
+          <img src="assets/images/studios/small/studio-small-2.jpg" class="w-full h-full object-cover">
+          <img src="assets/images/studios/small/mic.jpg" class="w-full h-full object-cover">
+          <img src="assets/images/artists/vocal-session.jpg" class="w-full h-full object-cover">
+        </div>
+      </div>
+    </div>
+
+    <!-- Medium -->
+    <div class="minimal-card bg-[#111827] border border-white/10 rounded-3xl mb-8 overflow-hidden">
+      <div class="grid lg:grid-cols-5">
+        <div class="p-8 lg:col-span-2 order-2 lg:order-1">
+          <div class="text-[#3B82F6] text-xs tracking-widest">СРЕДНЯЯ СТУДИЯ</div>
+          <div class="text-5xl tracking-tight font-semibold">Маяк Medium</div>
+          <div class="mt-1 text-3xl font-mono text-white/90">6 200 ₽ <span class="text-sm">/ час</span></div>
+          <div class="text-sm text-white/70 mt-4">Запись группы и живых инструментов. До 8 человек.</div>
+          <div class="mt-6 flex gap-2">
+            <button onclick="bookStudio('Маяк Medium')" class="flex-1 py-3.5 bg-[#FACC15] text-[#0B0F1C] font-semibold rounded-2xl">Забронировать</button>
+            <button onclick="showGalleryModal('medium')" class="flex-1 border border-white/20 py-3.5 rounded-2xl">Галерея</button>
+          </div>
+        </div>
+        <div class="lg:col-span-3 grid grid-cols-2 gap-px bg-white/10 order-1 lg:order-2">
+          <img src="assets/images/studios/medium/studio-medium.jpg" class="w-full h-full object-cover">
+          <img src="assets/images/artists/beatmaker.jpg" class="w-full h-full object-cover">
+          <img src="assets/images/artists/artist-portrait.jpg" class="w-full h-full object-cover">
+          <img src="assets/images/artists/vocal-session.jpg" class="w-full h-full object-cover">
+        </div>
+      </div>
+    </div>
+
+    <!-- Large -->
+    <div class="minimal-card bg-[#111827] border border-white/10 rounded-3xl overflow-hidden">
+      <div class="grid lg:grid-cols-5">
+        <div class="p-8 lg:col-span-2">
+          <div class="text-[#3B82F6] text-xs tracking-widest">БОЛЬШАЯ СТУДИЯ</div>
+          <div class="text-5xl tracking-tight font-semibold">Маяк Large</div>
+          <div class="mt-1 text-3xl font-mono text-white/90">11 500 ₽ <span class="text-sm">/ час</span></div>
+          <div class="text-sm text-white/70 mt-4">Live room с роялем. До 16 человек. Концерты и съёмки.</div>
+          <div class="mt-6 grid grid-cols-2 gap-2">
+            <button onclick="bookStudio('Маяк Large')" class="py-3 bg-[#FACC15] text-[#0B0F1C] font-semibold rounded-2xl">Забронировать</button>
+            <button onclick="showGalleryModal('large')" class="py-3 border border-white/20 rounded-2xl">Галерея</button>
+          </div>
+        </div>
+        <div class="lg:col-span-3 grid grid-cols-2 gap-px bg-white/10">
+          <img src="assets/images/studios/large/studio-large.jpg" class="w-full h-full object-cover">
+          <img src="assets/images/studios/large/loft-space.jpg" class="w-full h-full object-cover">
+          <img src="assets/images/studios/large/event-space.jpg" class="w-full h-full object-cover">
+          <img src="assets/images/studios/large/concert.jpg" class="w-full h-full object-cover">
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-10 pb-12">
+      <button onclick="showRequestModal()" class="px-12 py-4 bg-[#3B82F6] rounded-2xl font-semibold">Не знаете, что выбрать? Напишите нам</button>
+    </div>
+  </div>
+
+  <!-- Booking modal -->
+  <div id="request-modal" onclick="if(event.target.id==='request-modal') hideRequestModal()" class="hidden fixed inset-0 bg-black/90 z-[100] items-center justify-center p-4">
+    <div onclick="event.stopImmediatePropagation()" class="bg-[#111827] w-full max-w-md rounded-3xl p-7 border border-white/10">
+      <div class="font-semibold text-xl mb-5">Бронирование</div>
+      <form onsubmit="submitBooking(event)">
+        <input id="studio-name" readonly class="w-full bg-[#0B0F1C] px-4 py-3 rounded-2xl mb-4 border border-white/10">
+        <div class="grid grid-cols-2 gap-4 mb-4">
+          <input type="date" value="2026-06-25" class="bg-[#0B0F1C] border border-white/10 px-4 py-3 rounded-2xl">
+          <select class="bg-[#0B0F1C] border border-white/10 px-4 py-3 rounded-2xl">
+            <option>10:00 — 13:00</option>
+            <option>13:00 — 16:00</option>
+            <option>16:00 — 19:00</option>
+            <option>19:00 — 22:00</option>
+          </select>
+        </div>
+        <input placeholder="Имя" class="w-full bg-[#0B0F1C] border border-white/10 px-4 py-3 rounded-2xl mb-4">
+        <input placeholder="Телефон" value="+7 " class="w-full bg-[#0B0F1C] border border-white/10 px-4 py-3 rounded-2xl mb-4">
+        <button class="w-full py-3.5 bg-[#FACC15] text-[#0B0F1C] rounded-2xl font-semibold">Забронировать</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Gallery -->
+  <div id="gallery-modal" onclick="if (event.target.id === 'gallery-modal') hideGalleryModal()" class="hidden fixed inset-0 bg-black/90 z-[110] items-center justify-center p-4">
+    <div onclick="event.stopImmediatePropagation()" class="bg-[#111827] max-w-4xl w-full rounded-3xl p-7 border border-white/10">
+      <div class="flex justify-between mb-4"><div id="gallery-title" class="font-semibold text-xl"></div><button onclick="hideGalleryModal()" class="text-3xl leading-none">×</button></div>
+      <div id="gallery-grid" class="grid grid-cols-2 md:grid-cols-4 gap-2"></div>
+    </div>
+  </div>
+
+  <script>
+    function bookStudio(name) {
+      document.getElementById('request-modal').classList.remove('hidden');
+      document.getElementById('request-modal').classList.add('flex');
+      document.getElementById('studio-name').value = name;
+    }
+    function hideRequestModal() {
+      const m = document.getElementById('request-modal');
+      m.classList.add('hidden'); m.classList.remove('flex');
+    }
+    function submitBooking(e) {
+      e.preventDefault();
+      hideRequestModal();
+      alert('Студия забронирована. Подтверждение придёт на почту.');
+    }
+
+    const galleries = {
+      small: ["studios/small/studio-small.jpg","studios/small/mic.jpg","artists/vocal-session.jpg"],
+      medium: ["studios/medium/studio-medium.jpg","artists/beatmaker.jpg","artists/artist-portrait.jpg"],
+      large: ["studios/large/studio-large.jpg","studios/large/loft-space.jpg","studios/large/event-space.jpg","studios/large/concert.jpg"]
+    };
+    function showGalleryModal(type) {
+      const m = document.getElementById('gallery-modal');
+      document.getElementById('gallery-title').innerText = type === 'small' ? 'Маяк Small' : type === 'medium' ? 'Маяк Medium' : 'Маяк Large';
+      const grid = document.getElementById('gallery-grid');
+      grid.innerHTML = '';
+      (galleries[type] || []).forEach(img => {
+        grid.innerHTML += `<img src="assets/images/${img}" class="rounded-xl w-full aspect-video object-cover">`;
+      });
+      m.classList.remove('hidden'); m.classList.add('flex');
+    }
+    function hideGalleryModal() {
+      document.getElementById('gallery-modal').classList.remove('flex');
+      document.getElementById('gallery-modal').classList.add('hidden');
+    }
+    function showRequestModal() {
+      alert('Напишите нам на hello@mayakmusic.ru или оставьте заявку на главной.');
+    }
+  </script>
+</body>
+</html>
