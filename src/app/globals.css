@@ -1,0 +1,98 @@
+@import "tailwindcss";
+
+:root {
+  /* Cold midnight blue — no green/teal swamp */
+  --background: #0a1628;
+  --background-elevated: #132844;
+  --foreground: #f4f7fb;
+  --muted: rgba(244, 247, 251, 0.6);
+  --border: rgba(255, 255, 255, 0.1);
+
+  --gold: #e8b84a;
+  --gold-hot: #f5c451;
+  --gold-soft: rgba(232, 184, 74, 0.14);
+  --gold-on: #0a1628;
+
+  /* Clean mid-blue accents only — not body */
+  --sea: #3d8fd1;
+  --sea-deep: #1e5a9e;
+  --sea-soft: rgba(61, 143, 209, 0.12);
+  --foam: #c5ddf5;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-gold: var(--gold);
+  --color-gold-hot: var(--gold-hot);
+  --color-gold-soft: var(--gold-soft);
+  --color-sea: var(--sea);
+  --color-sea-deep: var(--sea-deep);
+  --color-sea-soft: var(--sea-soft);
+  --color-foam: var(--foam);
+  --color-navy: #0a1628;
+  --color-navy-elevated: #132844;
+  --font-sans: var(--font-sans);
+  --font-display: var(--font-display);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.font-display {
+  font-family: var(--font-display), var(--font-sans), system-ui, sans-serif;
+}
+
+::selection {
+  background: rgba(232, 184, 74, 0.35);
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 2px solid rgba(232, 184, 74, 0.75);
+  outline-offset: 2px;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0a1628;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(232, 184, 74, 0.35);
+}
+
+.h-13 {
+  height: 3.25rem;
+}
+
+input,
+textarea,
+select,
+button {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}

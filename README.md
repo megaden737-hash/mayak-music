@@ -1,74 +1,93 @@
-# Mayak Music — Сайт
+# Mayak Music — сайт агентства
 
-Статический сайт музыкального агентства Mayak Music.
+Профессиональный сайт музыкального агентства **Mayak Music** на Next.js 15.
 
-**Текущие страницы:**
-- Главная (index.html)
-- Studios (studios.html)
-- Creation / Marketplace (creation.html)
-- School / Обучение (learning.html)
-- Другие: Label, Promotion, Vacancies, Account и т.д.
+**Live:** https://mayak-music.vercel.app  
+**Стек:** Next.js 15 (App Router) · TypeScript · Tailwind CSS v4 · Framer Motion
 
-**Технологии:** Чистый HTML + Tailwind CDN + Vanilla JS. Все изображения в `assets/images/`.
+## Страницы
+
+| URL | Описание |
+|-----|----------|
+| `/` | Главная: hero, направления, процесс, кейсы, CTA |
+| `/studios` | 3 студии + онлайн-календарь бронирования |
+| `/creation` | Услуги под ключ + маркетплейс битов/песен |
+| `/learning` | Курсы с ценами + пробный урок |
+| `/promotion` | Пакеты продвижения с фиксированными ценами |
+| `/account` | Кабинет артиста (демо) |
+| `/apply` | Квиз «Что тебе нужно?» + заявка −20% |
 
 ## Локальный запуск
 
 ```bash
-cd mayak-music
-python3 -m http.server 8000
+# Node 18+
+npm install
+npm run dev
 ```
 
-Открой http://localhost:8000
+Открой [http://localhost:3000](http://localhost:3000).
 
-## Деплой на Vercel (через GitHub)
+## Сборка
 
-Поскольку ты подключил GitHub и Vercel к Grok, вот как выложить:
-
-### 1. Подключи GitHub (если ещё не)
 ```bash
-# В папке проекта (уже сделано)
-cd /Users/daniilostasenko/mayak-music
-
-# Создай репозиторий на GitHub (через веб или gh)
-# Затем:
-git remote add origin https://github.com/ТВОЙ_НИК/mayak-music.git
-git branch -M main
-git push -u origin main
+npm run build
+npm start
 ```
 
-### 2. Подключи Vercel
-1. Зайди на vercel.com
-2. New Project → Import Git Repository
-3. Выбери репозиторий
-4. Настройки:
-   - Framework: **Other**
-   - Build Command: (оставь пустым)
-   - Output Directory: (оставь пустым или `.`)
-5. Deploy
+## Деплой на Vercel
 
-Готово. Сайт будет по адресу `https://mayak-music-xxx.vercel.app`
+1. Подключи репозиторий `megaden737-hash/mayak-music` к Vercel  
+2. Framework Preset: **Next.js**  
+3. Root directory: `.`  
+4. Deploy  
 
-### 3. Последующие правки
-```bash
-# Отредактировал файлы
-git add .
-git commit -m "обновил Creation блок + формы"
-git push
-```
-
-Vercel автоматически передеплоит за ~30 секунд.
-
-## Формы и заявки
-Формы сейчас показывают только уведомления.
-
-Чтобы заявки приходили:
-- Подключи Formspree, Web3Forms или FormBold (рекомендую Web3Forms или FormBold для Telegram+email).
-- Скажи endpoint / access key — я быстро подключу все формы на сайте.
+Кастомный домен: Project → Settings → Domains.
 
 ## Структура
-- index.html — главная
-- assets/ — изображения и статика
-- vercel.json — конфиг для Vercel (уже добавлен)
 
-Все правки делай в этих файлах.
+```
+src/
+  app/                 # App Router pages
+  components/
+    layout/            # Header, Footer
+    home/              # Секции главной
+    studios/           # BookingCalendar
+    creation/          # Marketplace
+    forms/             # LeadQuiz
+    ui/                # Button, Section
+  lib/                 # data, utils
+public/images/         # Оптимизированные ассеты
+_legacy/               # Старый статический HTML
+```
 
+## Заявки → Telegram
+
+1. Создай бота у [@BotFather](https://t.me/BotFather), скопируй token  
+2. Узнай `chat_id` (например через @userinfobot)  
+3. Создай `.env.local`:
+
+```bash
+TELEGRAM_BOT_TOKEN=...
+TELEGRAM_CHAT_ID=...
+NEXT_PUBLIC_SITE_URL=https://mayak-music.vercel.app
+# NEXT_PUBLIC_YANDEX_METRIKA_ID=12345678
+```
+
+4. Перезапусти `npm run dev` / redeploy на Vercel  
+
+Без env заявки всё равно принимаются (логируются на сервере) и UX не ломается.
+
+## Контакты
+
+Все контакты — в `src/lib/data.ts` (`SITE.phone`, `telegram`, …). Замени на реальные перед продом.
+
+## Дальше (интеграции)
+
+- Подключить **Cal.com** / Google Calendar к `BookingCalendar`
+- Auth (Clerk / Supabase) для реального кабинета
+- Оплата битов (ЮKassa / Stripe)
+- Реальные deep-links кейсов + mp3-превью
+
+## Контакты (контент сайта)
+
+Красный Октябрь · Болотная наб. · Москва
