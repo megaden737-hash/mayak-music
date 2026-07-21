@@ -177,7 +177,7 @@ export function BookingCalendar({
             className={cn(
               "rounded-xl px-4 py-2 text-sm font-medium transition",
               mode === id
-                ? "bg-white text-black"
+                ? "bg-foreground text-background"
                 : "bg-foreground/5 text-foreground/70 hover:bg-foreground/5",
             )}
           >
@@ -252,7 +252,7 @@ export function BookingCalendar({
             className={cn(
               "rounded-xl px-3 py-1.5 text-sm transition",
               duration === h
-                ? "bg-white text-black"
+                ? "bg-foreground text-background"
                 : "bg-foreground/5 text-foreground/70 hover:bg-foreground/5",
             )}
           >

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { PROMO_PACKAGES, SITE } from "@/lib/data";
+import { ExternalLink } from "lucide-react";
+import { LABEL_STATS, PROMO_PACKAGES, SITE } from "@/lib/data";
 import { formatPrice } from "@/lib/utils";
 import { Section, SectionHeader } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
@@ -9,9 +10,9 @@ import { DistributionForm } from "@/components/promotion/DistributionForm";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "Продвижение",
+  title: "Лейбл",
   description:
-    "Отправь трек на дистрибуцию через сайт. Плейлисты, SMM и полный релиз-пакет Mayak Promotion.",
+    "Mayak Label: 200+ релизов, дистрибуция, плейлисты и промо. Отправь трек через сайт.",
 };
 
 export default function PromotionPage() {
@@ -21,17 +22,17 @@ export default function PromotionPage() {
         <div className="absolute inset-0">
           <Image
             src="/images/news/news-celebration.jpg"
-            alt="Продвижение"
+            alt="Лейбл Mayak"
             fill
             priority
             className="object-cover opacity-30"
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-white/80 to-white" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[var(--hero-overlay-from)] to-[var(--hero-overlay-to)]" />
         </div>
         <div className="relative z-10 mx-auto max-w-7xl px-5 md:px-6">
           <div className="text-xs font-medium tracking-[0.18em] text-gold uppercase">
-            Promotion
+            Лейбл
           </div>
           <h1 className="mt-3 max-w-3xl font-display text-4xl font-semibold tracking-tight md:text-6xl">
             Выпусти трек сам —
@@ -52,6 +53,32 @@ export default function PromotionPage() {
           </div>
         </div>
       </section>
+
+      {/* Label proof */}
+      <Section id="label-proof" className="pt-0 pb-4">
+        <div className="flex flex-col gap-4 rounded-3xl border border-foreground/10 bg-navy-elevated p-6 sm:flex-row sm:items-center sm:justify-between md:p-8">
+          <div>
+            <div className="text-xs font-medium tracking-[0.16em] text-gold uppercase">
+              Mayak Label
+            </div>
+            <p className="mt-2 font-display text-xl font-semibold tracking-tight md:text-2xl">
+              Наш лейбл выпустил {LABEL_STATS.releases} релизов
+            </p>
+            <p className="mt-1 max-w-lg text-sm text-foreground/55">
+              Каталог на площадках — живые релизы артистов Mayak.
+            </p>
+          </div>
+          <a
+            href={LABEL_STATS.yandexUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex shrink-0 items-center justify-center gap-2 rounded-2xl border border-foreground/15 bg-background px-5 py-3 text-sm font-semibold text-foreground transition hover:border-gold/40 hover:bg-gold-soft"
+          >
+            {LABEL_STATS.yandexLabel}
+            <ExternalLink size={16} />
+          </a>
+        </div>
+      </Section>
 
       {/* Self-serve upload */}
       <Section id="upload" className="pt-0">

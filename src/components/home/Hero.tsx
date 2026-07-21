@@ -194,7 +194,7 @@ export function Hero() {
           type="button"
           onClick={prev}
           aria-label="Предыдущий слайд"
-          className="pointer-events-auto flex h-11 w-11 items-center justify-center rounded-full border border-foreground/15 bg-white/90 text-foreground shadow-sm backdrop-blur transition hover:border-gold/40 hover:bg-white"
+          className="pointer-events-auto flex h-11 w-11 items-center justify-center rounded-full border border-foreground/15 bg-background/90 text-foreground shadow-sm backdrop-blur transition hover:border-gold/40 hover:bg-background"
         >
           <ArrowLeft size={18} />
         </button>
@@ -202,7 +202,7 @@ export function Hero() {
           type="button"
           onClick={next}
           aria-label="Следующий слайд"
-          className="pointer-events-auto flex h-11 w-11 items-center justify-center rounded-full border border-foreground/15 bg-white/90 text-foreground shadow-sm backdrop-blur transition hover:border-gold/40 hover:bg-white"
+          className="pointer-events-auto flex h-11 w-11 items-center justify-center rounded-full border border-foreground/15 bg-background/90 text-foreground shadow-sm backdrop-blur transition hover:border-gold/40 hover:bg-background"
         >
           <ArrowRight size={18} />
         </button>

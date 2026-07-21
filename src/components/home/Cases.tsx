@@ -37,7 +37,7 @@ export function Cases() {
                 {c.tags.map((t) => (
                   <span
                     key={t}
-                    className="rounded-full border border-foreground/15 bg-white/85 px-2.5 py-1 text-[11px] text-foreground/80 backdrop-blur"
+                    className="rounded-full border border-foreground/15 bg-background/90 px-2.5 py-1 text-[11px] text-foreground/80 backdrop-blur"
                   >
                     {t}
                   </span>

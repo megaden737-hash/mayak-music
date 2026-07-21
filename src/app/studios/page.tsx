@@ -27,7 +27,7 @@ export default function StudiosPage() {
             className="object-cover opacity-40"
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-white/70 via-white/85 to-white" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/85 to-background" />
         </div>
         <div className="relative z-10 mx-auto max-w-7xl px-5 md:px-6">
           <div className="inline-flex items-center gap-2 text-xs font-medium tracking-[0.18em] text-gold uppercase">

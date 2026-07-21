@@ -28,7 +28,7 @@ export function Directions() {
                 className="object-cover opacity-40 transition duration-700 group-hover:scale-105 group-hover:opacity-50"
                 sizes="(max-width:768px) 100vw, 50vw"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-white via-white/80 to-white/30" />
+              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-background/30" />
             </div>
 
             <div className="relative flex min-h-[280px] flex-col justify-end p-6 md:min-h-[320px] md:p-8">

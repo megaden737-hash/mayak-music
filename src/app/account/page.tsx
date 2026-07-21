@@ -44,13 +44,10 @@ export default function AccountPage() {
   return (
     <div className="pt-28 pb-20 md:pt-32">
       <div className="mx-auto max-w-7xl px-5 md:px-6">
-        <div className="mb-6 rounded-2xl border border-amber-400/25 bg-amber-400/10 px-4 py-3 text-sm text-amber-100/90">
+        <div className="account-demo-banner mb-6 rounded-2xl px-4 py-3 text-sm leading-relaxed">
           <strong className="font-semibold">Демо-режим.</strong> Авторизация и
           реальные заказы подключаются. Чтобы работать с нами сейчас —{" "}
-          <a href="/apply" className="underline hover:text-foreground">
-            оставь заявку
-          </a>{" "}
-          или напиши в Telegram.
+          <a href="/apply">оставь заявку</a> или напиши в Telegram.
         </div>
 
         <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">

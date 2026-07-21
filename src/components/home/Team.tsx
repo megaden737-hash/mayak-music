@@ -32,7 +32,7 @@ export function Team() {
                 className="object-cover transition duration-500 group-hover:scale-105"
                 sizes="(max-width:640px) 50vw, (max-width:1024px) 33vw, 25vw"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-white via-white/25 to-transparent opacity-95" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[var(--background)] via-[var(--background)]/40 to-transparent opacity-95" />
               <div className="absolute inset-x-0 bottom-0 p-3 md:p-4">
                 <h3 className="font-display text-base font-semibold tracking-tight md:text-lg">
                   {m.name}
@@ -50,7 +50,7 @@ export function Team() {
 
         {/* Partners card */}
         <article className="flex flex-col overflow-hidden rounded-2xl border border-foreground/10 bg-navy-elevated">
-          <div className="relative flex min-h-0 flex-1 flex-col justify-between aspect-[3/4] bg-gradient-to-b from-sea-soft via-navy-elevated to-white p-4 md:p-5">
+          <div className="relative flex min-h-0 flex-1 flex-col justify-between aspect-[3/4] bg-gradient-to-b from-sea-soft via-navy-elevated to-background p-4 md:p-5">
             <div>
               <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-gold-soft text-gold">
                 <Handshake size={20} />
@@ -81,7 +81,7 @@ export function Team() {
 
         {/* Join us card */}
         <article className="flex flex-col overflow-hidden rounded-2xl border border-gold/35 bg-navy-elevated shadow-[0_0_40px_-12px_rgba(10,79,255,0.2)]">
-          <div className="relative flex aspect-[3/4] flex-col justify-between bg-gradient-to-b from-gold/10 via-navy-elevated to-white p-4 md:p-5">
+          <div className="relative flex aspect-[3/4] flex-col justify-between bg-gradient-to-b from-gold/10 via-navy-elevated to-background p-4 md:p-5">
             <div>
               <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-gold/20 text-gold">
                 <Sparkles size={20} />

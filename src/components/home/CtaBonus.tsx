@@ -41,7 +41,7 @@ export function CtaBonus() {
           </h2>
           <p className="mt-4 max-w-md text-foreground/60">
             До конца месяца: скидка на первый заказ. Плюс бесплатная экскурсия
-            по студиям и пробный урок в School.
+            по студиям и пробный урок в Школе.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-2">
@@ -73,7 +73,7 @@ export function CtaBonus() {
               <span className="text-gold">✓</span> Бесплатная экскурсия
             </li>
             <li className="flex gap-2">
-              <span className="text-gold">✓</span> Пробный урок в School
+              <span className="text-gold">✓</span> Пробный урок в Школе
             </li>
           </ul>
         </div>

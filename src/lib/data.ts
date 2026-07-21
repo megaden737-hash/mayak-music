@@ -47,7 +47,7 @@ export const HERO_SLIDES = [
   },
   {
     id: "creation",
-    eyebrow: "Creation",
+    eyebrow: "Мастерская",
     title: "Биты, песни",
     titleLine2: "и контент под ключ",
     description:
@@ -58,7 +58,7 @@ export const HERO_SLIDES = [
   },
   {
     id: "learning",
-    eyebrow: "School",
+    eyebrow: "Школа",
     title: "Учись так,",
     titleLine2: "как тебе удобно",
     description:
@@ -69,7 +69,7 @@ export const HERO_SLIDES = [
   },
   {
     id: "promotion",
-    eyebrow: "Promotion",
+    eyebrow: "Лейбл",
     title: "Выпусти трек сам —",
     titleLine2: "через сайт",
     description:
@@ -84,7 +84,7 @@ export const HERO_SLIDES = [
     title: "Всё для артиста —",
     titleLine2: "одна команда",
     description:
-      "Студия, создание, обучение и продвижение. −20% на первую услугу до конца месяца.",
+      "Студия, мастерская, школа и лейбл. −20% на первую услугу до конца месяца.",
     image: "/images/studios/hero.jpg",
     primary: { href: "/apply", label: "Оставить заявку" },
     secondary: { href: "/#bonus", label: "Забрать −20%" },
@@ -94,10 +94,17 @@ export const HERO_SLIDES = [
 /** Основная навигация — без кабинета (кабинет → «Войти») */
 export const NAV = [
   { href: "/studios", label: "Студии" },
-  { href: "/creation", label: "Создание" },
-  { href: "/learning", label: "Обучение" },
-  { href: "/promotion", label: "Продвижение" },
+  { href: "/creation", label: "Мастерская" },
+  { href: "/learning", label: "Школа" },
+  { href: "/promotion", label: "Лейбл" },
 ] as const;
+
+/** Mayak Label public proof */
+export const LABEL_STATS = {
+  releases: "200+",
+  yandexUrl: "https://music.yandex.ru/label/5448090",
+  yandexLabel: "Смотреть на Яндекс Музыке",
+} as const;
 
 export const DIRECTIONS = [
   {
@@ -114,7 +121,7 @@ export const DIRECTIONS = [
   {
     slug: "creation",
     href: "/creation",
-    title: "Создание",
+    title: "Мастерская",
     subtitle: "Биты · песни · визуал",
     description:
       "Готовый маркетплейс и продакшн под ключ: биты, треки, обложки, рилсы и клипы.",
@@ -125,7 +132,7 @@ export const DIRECTIONS = [
   {
     slug: "learning",
     href: "/learning",
-    title: "Обучение",
+    title: "Школа",
     subtitle: "Курсы · уроки · ивенты",
     description:
       "Пробный урок, записанные курсы, живые занятия онлайн/офлайн, разовые уроки без абонемента, вебинары и концерты.",
@@ -136,10 +143,10 @@ export const DIRECTIONS = [
   {
     slug: "promotion",
     href: "/promotion",
-    title: "Продвижение",
+    title: "Лейбл",
     subtitle: "Релиз · плейлисты · SMM",
     description:
-      "Дистрибуция на 150+ площадок, плейлисты, реклама и полный релиз-пакет.",
+      "Дистрибуция на 150+ площадок, плейлисты, реклама и полный релиз-пакет. 200+ релизов Mayak Label.",
     price: "релиз 3 900 ₽",
     image: "/images/news/news-celebration.jpg",
     cta: "Запустить релиз",

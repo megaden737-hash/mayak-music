@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/Button";
 import { Marketplace } from "@/components/creation/Marketplace";
 
 export const metadata: Metadata = {
-  title: "Создание",
+  title: "Мастерская",
   description:
     "Биты, песни под ключ, дизайн и съёмки. Маркетплейс готовых треков Mayak Music.",
 };
@@ -20,17 +20,17 @@ export default function CreationPage() {
         <div className="absolute inset-0">
           <Image
             src="/images/studios/creation-hero.jpg"
-            alt="Создание музыки"
+            alt="Мастерская Mayak"
             fill
             priority
             className="object-cover opacity-35"
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-white/75 to-white" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/75 to-background" />
         </div>
         <div className="relative z-10 mx-auto max-w-7xl px-5 md:px-6">
           <div className="text-xs font-medium tracking-[0.18em] text-gold uppercase">
-            Creation
+            Мастерская
           </div>
           <h1 className="mt-3 max-w-3xl font-display text-4xl font-semibold tracking-tight md:text-6xl">
             Создай релиз — или купи готовое

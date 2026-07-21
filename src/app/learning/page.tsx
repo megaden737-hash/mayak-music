@@ -13,9 +13,9 @@ import { Button } from "@/components/ui/Button";
 import { LeadQuiz } from "@/components/forms/LeadQuiz";
 
 export const metadata: Metadata = {
-  title: "Обучение",
+  title: "Школа",
   description:
-    "Пробный урок, записанные курсы, живые занятия онлайн/офлайн, разовые уроки, вебинары и концерты Mayak School.",
+    "Пробный урок, записанные курсы, живые занятия онлайн/офлайн, разовые уроки, вебинары и концерты Mayak Школа.",
 };
 
 const formatBadge: Record<string, string> = {
@@ -31,18 +31,18 @@ export default function LearningPage() {
         <div className="absolute inset-0">
           <Image
             src="/images/studios/school-hero.jpg"
-            alt="Обучение Mayak"
+            alt="Школа Mayak"
             fill
             priority
             className="object-cover opacity-35"
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-white/75 to-white" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/75 to-background" />
         </div>
         <div className="relative z-10 mx-auto flex max-w-7xl flex-col items-start gap-8 px-5 md:flex-row md:items-center md:justify-between md:px-6">
           <div className="max-w-2xl">
             <div className="text-xs font-medium tracking-[0.18em] text-gold uppercase">
-              School
+              Школа
             </div>
             <h1 className="mt-3 font-display text-4xl font-semibold tracking-tight md:text-6xl">
               Учись так, как тебе удобно
@@ -63,7 +63,7 @@ export default function LearningPage() {
           <div className="relative h-40 w-40 shrink-0 overflow-hidden rounded-3xl border border-foreground/10 md:h-52 md:w-52">
             <Image
               src="/images/mascot.jpg"
-              alt="Маскот Mayak School"
+              alt="Маскот Mayak Школа"
               fill
               className="object-cover"
               sizes="208px"
@@ -303,7 +303,7 @@ export default function LearningPage() {
       <Section className="pb-24 pt-0">
         <SectionHeader
           eyebrow="Этапы"
-          title="Как обычно заходят в School"
+          title="Как обычно заходят в Школу"
         />
         <div className="grid gap-4 sm:grid-cols-4">
           {[
