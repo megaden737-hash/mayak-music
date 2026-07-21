@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Manrope } from "next/font/google";
+import { Inter, Onest } from "next/font/google";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { TelegramFloat } from "@/components/layout/TelegramFloat";
@@ -12,8 +12,8 @@ const inter = Inter({
   display: "swap",
 });
 
-/** Modern product grotesk (Yandex Sans–like), full Cyrillic */
-const manrope = Manrope({
+/** Yandex Sans–like: large, simple, product grotesk + Cyrillic */
+const onest = Onest({
   subsets: ["latin", "cyrillic"],
   variable: "--font-display",
   display: "swap",
@@ -73,13 +73,34 @@ export const metadata: Metadata = {
   },
 };
 
+/** Prevent FOUC: default light, restore saved theme before paint */
+const themeInitScript = `
+(function(){
+  try {
+    var t = localStorage.getItem('mayak-theme');
+    if (t !== 'dark' && t !== 'light') t = 'light';
+    document.documentElement.setAttribute('data-theme', t);
+  } catch (e) {
+    document.documentElement.setAttribute('data-theme', 'light');
+  }
+})();
+`;
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ru" className={`${inter.variable} ${manrope.variable}`}>
+    <html
+      lang="ru"
+      className={`${inter.variable} ${onest.variable}`}
+      suppressHydrationWarning
+      data-theme="light"
+    >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+      </head>
       <body className="min-h-screen bg-background font-sans text-foreground antialiased">
         <YandexMetrika />
         <Header />

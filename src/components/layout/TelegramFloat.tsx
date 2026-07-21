@@ -8,7 +8,7 @@ export function TelegramFloat() {
       href={SITE.telegram}
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed right-4 bottom-4 z-50 flex items-center gap-2 rounded-full bg-gold px-4 py-3 text-sm font-semibold !text-white shadow-lg shadow-foreground/15 transition hover:scale-[1.03] hover:bg-gold-hot hover:!text-white md:right-6 md:bottom-6 [&_svg]:!text-white"
+      className="btn-glow fixed right-4 bottom-4 z-50 flex items-center gap-2 rounded-full bg-gold px-4 py-3 text-sm font-semibold !text-white transition hover:bg-gold-hot hover:!text-white md:right-6 md:bottom-6 [&_svg]:!text-white"
       aria-label="Написать в Telegram"
     >
       <svg

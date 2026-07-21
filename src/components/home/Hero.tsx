@@ -137,7 +137,7 @@ export function Hero() {
                 sizes="100vw"
                 draggable={false}
               />
-              <div className="absolute inset-0 bg-gradient-to-b from-white/90 via-white/85 to-white" />
+              <div className="hero-overlay absolute inset-0" />
               <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(10,79,255,0.08),transparent_50%)]" />
             </div>
 
@@ -149,7 +149,7 @@ export function Hero() {
                     {slide.eyebrow}
                   </div>
 
-                  <h1 className="font-display text-[clamp(2.2rem,6vw,4.75rem)] leading-[0.98] font-semibold tracking-[-0.03em] text-foreground">
+                  <h1 className="font-display text-[clamp(2.5rem,6.5vw,4.75rem)] leading-[0.98] font-bold tracking-[-0.03em] text-foreground">
                     {slide.title}
                     {slide.titleLine2 && (
                       <span className="block text-foreground">{slide.titleLine2}</span>

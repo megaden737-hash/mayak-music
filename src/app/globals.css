@@ -1,7 +1,8 @@
 @import "tailwindcss";
 
-:root {
-  /* Light theme: white surfaces + bright blue ink */
+/* ─── Light (default) ─── */
+:root,
+[data-theme="light"] {
   --background: #ffffff;
   --background-elevated: #f4f8fc;
   --background-muted: #eef4fb;
@@ -10,7 +11,6 @@
   --muted: rgba(10, 79, 255, 0.55);
   --border: rgba(10, 79, 255, 0.12);
 
-  /* Primary = bright blue (token name gold kept for fewer renames) */
   --gold: #0a4fff;
   --gold-hot: #0636c9;
   --gold-soft: rgba(10, 79, 255, 0.08);
@@ -20,6 +20,51 @@
   --sea-deep: #0a4fff;
   --sea-soft: rgba(10, 79, 255, 0.06);
   --foam: #dbe8ff;
+
+  --surface: #ffffff;
+  --surface-elevated: #f4f8fc;
+
+  --hero-overlay-from: rgba(255, 255, 255, 0.92);
+  --hero-overlay-via: rgba(255, 255, 255, 0.88);
+  --hero-overlay-to: #ffffff;
+
+  --header-bg: rgba(255, 255, 255, 0.9);
+  --scrollbar-track: #f4f8fc;
+  --selection-bg: rgba(10, 79, 255, 0.18);
+  --selection-fg: #0636c9;
+}
+
+/* ─── Dark ─── */
+[data-theme="dark"] {
+  --background: #0a1628;
+  --background-elevated: #132844;
+  --background-muted: #0f1f35;
+  --foreground: #e8f0ff;
+  --foreground-strong: #ffffff;
+  --muted: rgba(232, 240, 255, 0.62);
+  --border: rgba(255, 255, 255, 0.12);
+
+  --gold: #0a4fff;
+  --gold-hot: #3d6fff;
+  --gold-soft: rgba(10, 79, 255, 0.18);
+  --gold-on: #ffffff;
+
+  --sea: #5aa8e8;
+  --sea-deep: #0a4fff;
+  --sea-soft: rgba(90, 168, 232, 0.12);
+  --foam: #a8c8f0;
+
+  --surface: #0a1628;
+  --surface-elevated: #132844;
+
+  --hero-overlay-from: rgba(10, 22, 40, 0.92);
+  --hero-overlay-via: rgba(10, 22, 40, 0.88);
+  --hero-overlay-to: #0a1628;
+
+  --header-bg: rgba(10, 22, 40, 0.92);
+  --scrollbar-track: #0a1628;
+  --selection-bg: rgba(61, 111, 255, 0.35);
+  --selection-fg: #ffffff;
 }
 
 @theme inline {
@@ -34,9 +79,8 @@
   --color-sea-deep: var(--sea-deep);
   --color-sea-soft: var(--sea-soft);
   --color-foam: var(--foam);
-  /* Legacy class names: navy* = light surfaces */
-  --color-navy: #ffffff;
-  --color-navy-elevated: #f4f8fc;
+  --color-navy: var(--surface);
+  --color-navy-elevated: var(--surface-elevated);
   --font-sans: var(--font-sans);
   --font-display: var(--font-display);
 }
@@ -55,27 +99,67 @@ body {
   font-family: var(--font-sans), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.25s ease, color 0.2s ease;
 }
 
+/* Onest-like product headings — large, simple, readable */
 .font-display {
   font-family: var(--font-display), var(--font-sans), system-ui, sans-serif;
   font-weight: 700;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
 }
 
-/* Solid primary surfaces: always white type */
-.btn-solid-blue,
-[data-solid="blue"] {
-  color: #ffffff !important;
+/* Primary CTA glow: blue fill + warm yellow/orange/red halo */
+.btn-glow {
+  box-shadow:
+    0 0 0 1px rgba(10, 79, 255, 0.28),
+    0 0 18px rgba(255, 190, 50, 0.42),
+    0 0 36px rgba(255, 110, 40, 0.28),
+    0 8px 22px rgba(220, 45, 50, 0.12);
+  transition:
+    box-shadow 0.2s ease,
+    transform 0.15s ease,
+    background-color 0.15s ease;
 }
-.btn-solid-blue svg,
-[data-solid="blue"] svg {
-  color: #ffffff !important;
+
+.btn-glow:hover {
+  box-shadow:
+    0 0 0 1px rgba(10, 79, 255, 0.35),
+    0 0 26px rgba(255, 205, 70, 0.55),
+    0 0 52px rgba(255, 95, 40, 0.38),
+    0 0 72px rgba(230, 40, 60, 0.2);
+  transform: translateY(-1px);
+}
+
+[data-theme="dark"] .btn-glow {
+  box-shadow:
+    0 0 0 1px rgba(90, 130, 255, 0.4),
+    0 0 22px rgba(255, 185, 50, 0.5),
+    0 0 44px rgba(255, 100, 45, 0.32),
+    0 8px 28px rgba(220, 50, 60, 0.18);
+}
+
+[data-theme="dark"] .btn-glow:hover {
+  box-shadow:
+    0 0 0 1px rgba(120, 160, 255, 0.5),
+    0 0 32px rgba(255, 200, 70, 0.6),
+    0 0 60px rgba(255, 90, 40, 0.42),
+    0 0 90px rgba(230, 40, 70, 0.25);
+}
+
+.hero-overlay {
+  background: linear-gradient(
+    to bottom,
+    var(--hero-overlay-from),
+    var(--hero-overlay-via),
+    var(--hero-overlay-to)
+  );
 }
 
 ::selection {
-  background: rgba(10, 79, 255, 0.18);
-  color: #0636c9;
+  background: var(--selection-bg);
+  color: var(--selection-fg);
 }
 
 :focus-visible {
@@ -88,14 +172,14 @@ body {
   height: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: #f4f8fc;
+  background: var(--scrollbar-track);
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(10, 79, 255, 0.2);
+  background: rgba(10, 79, 255, 0.22);
   border-radius: 999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(10, 79, 255, 0.35);
+  background: rgba(10, 79, 255, 0.38);
 }
 
 .h-13 {

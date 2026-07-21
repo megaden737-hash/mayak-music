@@ -8,6 +8,7 @@ import { NAV, SITE } from "@/lib/data";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/Button";
 import { Logo } from "@/components/ui/Logo";
+import { ThemeToggle } from "@/components/theme/ThemeToggle";
 
 export function Header() {
   const pathname = usePathname();
@@ -39,9 +40,10 @@ export function Header() {
           className={cn(
             "mx-auto flex h-14 max-w-7xl items-center justify-between rounded-2xl border px-4 transition-all duration-300 md:h-16 md:px-5",
             scrolled
-              ? "border-foreground/10 bg-navy/90 shadow-xl shadow-foreground/10 backdrop-blur-xl"
-              : "border-foreground/10 bg-navy/70 backdrop-blur-md",
+              ? "border-foreground/10 shadow-xl shadow-foreground/10 backdrop-blur-xl"
+              : "border-foreground/10 backdrop-blur-md",
           )}
+          style={{ background: "var(--header-bg)" }}
         >
           <div className="flex items-center gap-2">
             <Logo size="sm" />
@@ -75,6 +77,7 @@ export function Header() {
           </nav>
 
           <div className="flex items-center gap-2">
+            <ThemeToggle className="hidden sm:flex" />
             <Link
               href="/account"
               className="hidden text-sm text-foreground/45 transition hover:text-foreground md:inline"
@@ -102,7 +105,7 @@ export function Header() {
 
       <div
         className={cn(
-          "fixed inset-0 z-40 bg-navy/98 backdrop-blur-xl transition-opacity duration-300 lg:hidden",
+          "fixed inset-0 z-40 bg-background/98 backdrop-blur-xl transition-opacity duration-300 lg:hidden",
           open ? "opacity-100" : "pointer-events-none opacity-0",
         )}
       >
@@ -133,6 +136,10 @@ export function Header() {
             </Link>
           </nav>
           <div className="mt-auto space-y-3">
+            <div className="flex items-center justify-between rounded-2xl border border-foreground/10 px-4 py-3">
+              <span className="text-sm text-foreground/60">Тема</span>
+              <ThemeToggle />
+            </div>
             <Button href="/studios#booking" size="lg" className="w-full">
               Забронировать студию
             </Button>
