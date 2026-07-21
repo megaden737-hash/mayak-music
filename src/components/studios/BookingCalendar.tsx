@@ -104,7 +104,7 @@ export function BookingCalendar({
   if (done) {
     return (
       <div className="rounded-3xl border border-gold/25 bg-gold/5 p-8 text-center">
-        <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-gold text-black">
+        <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-gold !text-white">
           <Check size={24} />
         </div>
         <h3 className="font-display text-2xl font-semibold">Бронь отправлена</h3>
@@ -231,7 +231,7 @@ export function BookingCalendar({
                   !isBusy &&
                     !selected &&
                     "border-foreground/10 text-foreground/80 hover:border-gold/40",
-                  selected && "border-gold bg-gold text-black",
+                  selected && "border-gold bg-gold !text-white",
                 )}
               >
                 {h}

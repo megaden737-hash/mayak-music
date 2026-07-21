@@ -90,7 +90,7 @@ export default function PromotionPage() {
               )}
             >
               {p.popular && (
-                <span className="absolute -top-3 left-6 rounded-full bg-gold px-3 py-1 text-[11px] font-bold tracking-wide text-black uppercase">
+                <span className="absolute -top-3 left-6 rounded-full bg-gold px-3 py-1 text-[11px] font-bold tracking-wide !text-white uppercase">
                   Хит
                 </span>
               )}

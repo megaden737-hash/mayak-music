@@ -70,7 +70,7 @@ export function LeadQuiz({ compact = false }: { compact?: boolean }) {
           compact && "p-6",
         )}
       >
-        <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-gold text-black">
+        <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-gold !text-white">
           <Check size={28} strokeWidth={2.5} />
         </div>
         <h3 className="font-display text-2xl font-semibold tracking-tight">

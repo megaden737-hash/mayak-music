@@ -103,7 +103,7 @@ export default function LearningPage() {
       <Section id="trial" className="bg-gold/[0.04]">
         <div className="grid items-start gap-8 md:grid-cols-2">
           <div>
-            <div className="inline-flex rounded-full bg-gold px-3 py-1 text-xs font-bold tracking-wide text-black uppercase">
+            <div className="inline-flex rounded-full bg-gold px-3 py-1 text-xs font-bold tracking-wide !text-white uppercase">
               Главный вход
             </div>
             <h2 className="mt-4 font-display text-3xl font-semibold tracking-tight md:text-4xl">

@@ -86,7 +86,7 @@ export default function AccountPage() {
                       className={cn(
                         "flex shrink-0 items-center gap-2.5 rounded-2xl px-4 py-3 text-sm font-medium transition",
                         tab === t.id
-                          ? "bg-gold text-black"
+                          ? "bg-gold !text-white"
                           : "text-foreground/60 hover:bg-foreground/5 hover:text-foreground",
                       )}
                     >

@@ -7,7 +7,8 @@ type Size = "sm" | "md" | "lg";
 
 const variants: Record<Variant, string> = {
   primary:
-    "bg-gold text-white hover:bg-gold-hot shadow-[0_0_0_1px_rgba(10,79,255,0.2)]",
+    // Force white label/icons always — never inherit page blue text
+    "bg-gold !text-white hover:bg-gold-hot hover:!text-white active:!text-white focus-visible:!text-white disabled:!text-white/80 [&_svg]:!text-white shadow-[0_0_0_1px_rgba(10,79,255,0.2)]",
   secondary:
     "bg-foreground/5 text-foreground hover:bg-foreground/10 border border-foreground/12",
   ghost:
@@ -61,6 +62,9 @@ export function Button(props: ButtonAsButton | ButtonAsLink) {
     variants[variant],
     sizes[size],
     className,
+    // Re-assert white after className so callers cannot override primary label color
+    variant === "primary" &&
+      "!text-white hover:!text-white [&_svg]:!text-white",
   );
 
   if ("href" in props && props.href) {

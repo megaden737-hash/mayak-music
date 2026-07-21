@@ -108,7 +108,7 @@ export function Marketplace() {
                   }
                   title="Превью скоро"
                 >
-                  <span className="flex h-14 w-14 items-center justify-center rounded-full bg-gold text-black shadow-lg">
+                  <span className="flex h-14 w-14 items-center justify-center rounded-full bg-gold !text-white shadow-lg">
                     <Play size={22} className="ml-0.5 fill-current" />
                   </span>
                 </button>
@@ -134,7 +134,7 @@ export function Marketplace() {
                   <button
                     type="button"
                     onClick={() => buy(`Бит «${b.title}»`, b.price)}
-                    className="inline-flex items-center gap-1.5 rounded-xl bg-gold px-3 py-2 text-xs font-semibold text-black transition hover:bg-gold"
+                    className="inline-flex items-center gap-1.5 rounded-xl bg-gold px-3 py-2 text-xs font-semibold !text-white transition hover:bg-gold-hot !text-white"
                   >
                     <ShoppingBag size={14} />
                     Заказать

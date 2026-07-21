@@ -23,6 +23,7 @@
 }
 
 @theme inline {
+  --color-white: #ffffff;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-foreground-strong: var(--foreground-strong);
@@ -58,6 +59,18 @@ body {
 
 .font-display {
   font-family: var(--font-display), var(--font-sans), system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* Solid primary surfaces: always white type */
+.btn-solid-blue,
+[data-solid="blue"] {
+  color: #ffffff !important;
+}
+.btn-solid-blue svg,
+[data-solid="blue"] svg {
+  color: #ffffff !important;
 }
 
 ::selection {

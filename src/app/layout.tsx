@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Space_Grotesk } from "next/font/google";
+import { Inter, Manrope } from "next/font/google";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { TelegramFloat } from "@/components/layout/TelegramFloat";
@@ -12,10 +12,12 @@ const inter = Inter({
   display: "swap",
 });
 
-const spaceGrotesk = Space_Grotesk({
-  subsets: ["latin"],
+/** Modern product grotesk (Yandex Sans–like), full Cyrillic */
+const manrope = Manrope({
+  subsets: ["latin", "cyrillic"],
   variable: "--font-display",
   display: "swap",
+  weight: ["500", "600", "700", "800"],
 });
 
 const siteUrl =
@@ -77,7 +79,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ru" className={`${inter.variable} ${spaceGrotesk.variable}`}>
+    <html lang="ru" className={`${inter.variable} ${manrope.variable}`}>
       <body className="min-h-screen bg-background font-sans text-foreground antialiased">
         <YandexMetrika />
         <Header />

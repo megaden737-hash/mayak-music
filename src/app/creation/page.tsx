@@ -54,7 +54,7 @@ export default function CreationPage() {
       <Section className="pt-0">
         <div className="grid gap-4 md:grid-cols-2">
           <div className="flex items-start gap-4 rounded-3xl border border-gold/20 bg-gold/5 p-6">
-            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-gold text-black">
+            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-gold !text-white">
               <Gift size={20} />
             </div>
             <div>
