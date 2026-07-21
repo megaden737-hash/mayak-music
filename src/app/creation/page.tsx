@@ -26,7 +26,7 @@ export default function CreationPage() {
             className="object-cover opacity-35"
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-navy/75 to-navy" />
+          <div className="absolute inset-0 bg-gradient-to-b from-white/75 to-white" />
         </div>
         <div className="relative z-10 mx-auto max-w-7xl px-5 md:px-6">
           <div className="text-xs font-medium tracking-[0.18em] text-gold uppercase">
@@ -35,7 +35,7 @@ export default function CreationPage() {
           <h1 className="mt-3 max-w-3xl font-display text-4xl font-semibold tracking-tight md:text-6xl">
             Создай релиз — или купи готовое
           </h1>
-          <p className="mt-4 max-w-xl text-lg text-white/60">
+          <p className="mt-4 max-w-xl text-lg text-foreground/60">
             Услуги под ключ и маркетплейс битов/песен. Один вход — от идеи до
             файла.
           </p>
@@ -59,7 +59,7 @@ export default function CreationPage() {
             </div>
             <div>
               <h3 className="font-semibold">5 бесплатных битов</h3>
-              <p className="mt-1 text-sm text-white/55">
+              <p className="mt-1 text-sm text-foreground/55">
                 Оставь заявку — пришлём пак в Telegram. Для практики и демо.
               </p>
               <Button href="/apply" size="sm" className="mt-4">
@@ -67,9 +67,9 @@ export default function CreationPage() {
               </Button>
             </div>
           </div>
-          <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-6">
+          <div className="rounded-3xl border border-foreground/10 bg-navy-elevated p-6">
             <h3 className="font-semibold">Прайс на продакшн</h3>
-            <p className="mt-1 text-sm text-white/55">
+            <p className="mt-1 text-sm text-foreground/55">
               Актуальные пакеты на сайте. Нужен PDF или кастом — напиши менеджеру.
             </p>
             <Button href="/apply" variant="outline" size="sm" className="mt-4">
@@ -89,13 +89,13 @@ export default function CreationPage() {
           {CREATION_SERVICES.map((s) => (
             <div
               key={s.title}
-              className="flex flex-col rounded-3xl border border-white/10 bg-navy-elevated p-6"
+              className="flex flex-col rounded-3xl border border-foreground/10 bg-navy-elevated p-6"
             >
               <h3 className="font-display text-xl font-semibold">{s.title}</h3>
               <div className="mt-2 font-display text-2xl font-semibold text-gold">
                 {formatPrice(s.price)}
               </div>
-              <ul className="mt-4 flex-1 space-y-2 text-sm text-white/55">
+              <ul className="mt-4 flex-1 space-y-2 text-sm text-foreground/55">
                 {s.items.map((item) => (
                   <li key={item} className="flex gap-2">
                     <span className="text-gold">✓</span>

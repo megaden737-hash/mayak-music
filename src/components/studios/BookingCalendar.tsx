@@ -108,7 +108,7 @@ export function BookingCalendar({
           <Check size={24} />
         </div>
         <h3 className="font-display text-2xl font-semibold">Бронь отправлена</h3>
-        <p className="mt-2 text-white/60">
+        <p className="mt-2 text-foreground/60">
           {studio.name} · {fmtDay(selectedDay)} · {selectedHour} · {duration} ч
           <br />
           Сумма: {formatPrice(total)}. Подтвердим слот в Telegram за 15–30 мин.
@@ -126,7 +126,7 @@ export function BookingCalendar({
   }
 
   return (
-    <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 md:p-8">
+    <div className="rounded-3xl border border-foreground/10 bg-navy-elevated p-5 md:p-8">
       <div className="mb-6 flex flex-wrap items-center gap-3">
         <div className="flex items-center gap-2 text-gold">
           <CalendarDays size={18} />
@@ -134,7 +134,7 @@ export function BookingCalendar({
             Онлайн-бронирование
           </span>
         </div>
-        <span className="text-xs text-white/35">
+        <span className="text-xs text-foreground/35">
           Заявка → подтверждение в Telegram · Cal.com можно подключить позже
         </span>
       </div>
@@ -153,11 +153,11 @@ export function BookingCalendar({
               "rounded-2xl border px-4 py-3 text-left transition",
               studioId === s.id
                 ? "border-gold/50 bg-gold/10"
-                : "border-white/10 bg-white/[0.02] hover:border-white/20",
+                : "border-foreground/10 bg-navy-elevated hover:border-foreground/20",
             )}
           >
             <div className="text-sm font-semibold">{s.name}</div>
-            <div className="text-xs text-white/45">{s.label}</div>
+            <div className="text-xs text-foreground/45">{s.label}</div>
           </button>
         ))}
       </div>
@@ -178,7 +178,7 @@ export function BookingCalendar({
               "rounded-xl px-4 py-2 text-sm font-medium transition",
               mode === id
                 ? "bg-white text-black"
-                : "bg-white/5 text-white/70 hover:bg-white/10",
+                : "bg-foreground/5 text-foreground/70 hover:bg-foreground/5",
             )}
           >
             {label}
@@ -199,8 +199,8 @@ export function BookingCalendar({
             className={cn(
               "min-w-[88px] shrink-0 rounded-2xl border px-3 py-3 text-center text-sm transition",
               dayOffset === i
-                ? "border-gold/50 bg-gold/10 text-white"
-                : "border-white/10 text-white/60 hover:border-white/20",
+                ? "border-gold/50 bg-gold/10 text-foreground"
+                : "border-foreground/10 text-foreground/60 hover:border-foreground/20",
             )}
           >
             {fmtDay(d)}
@@ -210,7 +210,7 @@ export function BookingCalendar({
 
       {/* Hours */}
       <div className="mb-5">
-        <div className="mb-3 flex items-center gap-2 text-sm text-white/50">
+        <div className="mb-3 flex items-center gap-2 text-sm text-foreground/50">
           <Clock size={14} />
           Свободные слоты
         </div>
@@ -227,10 +227,10 @@ export function BookingCalendar({
                 className={cn(
                   "rounded-xl border py-2.5 text-sm font-medium transition",
                   isBusy &&
-                    "cursor-not-allowed border-white/5 bg-white/[0.02] text-white/20 line-through",
+                    "cursor-not-allowed border-foreground/5 bg-navy-elevated text-foreground/20 line-through",
                   !isBusy &&
                     !selected &&
-                    "border-white/10 text-white/80 hover:border-gold/40",
+                    "border-foreground/10 text-foreground/80 hover:border-gold/40",
                   selected && "border-gold bg-gold text-black",
                 )}
               >
@@ -243,7 +243,7 @@ export function BookingCalendar({
 
       {/* Duration */}
       <div className="mb-6 flex flex-wrap items-center gap-3">
-        <span className="text-sm text-white/50">Длительность:</span>
+        <span className="text-sm text-foreground/50">Длительность:</span>
         {[1, 2, 3, 4, 6].map((h) => (
           <button
             key={h}
@@ -253,7 +253,7 @@ export function BookingCalendar({
               "rounded-xl px-3 py-1.5 text-sm transition",
               duration === h
                 ? "bg-white text-black"
-                : "bg-white/5 text-white/70 hover:bg-white/10",
+                : "bg-foreground/5 text-foreground/70 hover:bg-foreground/5",
             )}
           >
             {h} ч
@@ -261,9 +261,9 @@ export function BookingCalendar({
         ))}
       </div>
 
-      <div className="mb-6 flex flex-wrap items-end justify-between gap-4 rounded-2xl border border-white/10 bg-black/30 px-5 py-4">
+      <div className="mb-6 flex flex-wrap items-end justify-between gap-4 rounded-2xl border border-foreground/10 bg-foreground/5 px-5 py-4">
         <div>
-          <div className="text-sm text-white/50">
+          <div className="text-sm text-foreground/50">
             {studio.name} · {mode === "recording" ? "запись" : "репетиция"} ·{" "}
             {formatPrice(pricePerHour)}/час
           </div>
@@ -272,7 +272,7 @@ export function BookingCalendar({
           </div>
         </div>
         {selectedHour && (
-          <div className="text-sm text-white/60">
+          <div className="text-sm text-foreground/60">
             {fmtDay(selectedDay)} · с {selectedHour}
           </div>
         )}
@@ -284,7 +284,7 @@ export function BookingCalendar({
           placeholder="Имя"
           value={contact.name}
           onChange={(e) => setContact({ ...contact, name: e.target.value })}
-          className="rounded-2xl border border-white/10 bg-navy px-4 py-3.5 text-sm outline-none focus:border-gold/50"
+          className="rounded-2xl border border-foreground/10 bg-navy px-4 py-3.5 text-sm outline-none focus:border-gold/50"
         />
         <input
           required
@@ -292,7 +292,7 @@ export function BookingCalendar({
           placeholder="Телефон или Telegram"
           value={contact.phone}
           onChange={(e) => setContact({ ...contact, phone: e.target.value })}
-          className="rounded-2xl border border-white/10 bg-navy px-4 py-3.5 text-sm outline-none focus:border-gold/50"
+          className="rounded-2xl border border-foreground/10 bg-navy px-4 py-3.5 text-sm outline-none focus:border-gold/50"
         />
         {error && (
           <p className="text-sm text-red-400 sm:col-span-2">

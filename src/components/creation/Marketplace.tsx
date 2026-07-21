@@ -56,7 +56,7 @@ export function Marketplace() {
             <h2 className="mt-1 font-display text-3xl font-semibold tracking-tight md:text-4xl">
               Готовые биты
             </h2>
-            <p className="mt-2 text-sm text-white/50">
+            <p className="mt-2 text-sm text-foreground/50">
               Превью · цена · лицензия. Мгновенный заказ.
             </p>
           </div>
@@ -75,7 +75,7 @@ export function Marketplace() {
                 "rounded-full border px-4 py-1.5 text-sm transition",
                 genre === g.id
                   ? "border-gold/50 bg-gold/15 text-gold"
-                  : "border-white/10 text-white/60 hover:border-white/25",
+                  : "border-foreground/10 text-foreground/60 hover:border-foreground/25",
               )}
             >
               {g.label}
@@ -87,7 +87,7 @@ export function Marketplace() {
           {beats.map((b) => (
             <article
               key={b.id}
-              className="group overflow-hidden rounded-3xl border border-white/10 bg-navy-elevated transition hover:border-white/20"
+              className="group overflow-hidden rounded-3xl border border-foreground/10 bg-navy-elevated transition hover:border-foreground/20"
             >
               <div className="relative aspect-square">
                 <Image
@@ -120,7 +120,7 @@ export function Marketplace() {
               </div>
               <div className="p-4">
                 <h3 className="font-semibold tracking-tight">{b.title}</h3>
-                <div className="mt-1 flex items-center gap-2 text-xs text-white/40">
+                <div className="mt-1 flex items-center gap-2 text-xs text-foreground/40">
                   <span className="capitalize">{b.genre}</span>
                   <span>·</span>
                   <span>{b.bpm} BPM</span>
@@ -152,7 +152,7 @@ export function Marketplace() {
           <h2 className="font-display text-3xl font-semibold tracking-tight md:text-4xl">
             Готовые песни
           </h2>
-          <p className="mt-2 text-sm text-white/50">
+          <p className="mt-2 text-sm text-foreground/50">
             Лицензирование и покупка прав. Для релиза или синка.
           </p>
         </div>
@@ -160,7 +160,7 @@ export function Marketplace() {
           {TRACKS.map((t) => (
             <article
               key={t.id}
-              className="overflow-hidden rounded-3xl border border-white/10 bg-navy-elevated"
+              className="overflow-hidden rounded-3xl border border-foreground/10 bg-navy-elevated"
             >
               <div className="relative h-40">
                 <Image
@@ -172,9 +172,9 @@ export function Marketplace() {
                 />
               </div>
               <div className="p-4">
-                <div className="text-xs text-white/40">{t.artist}</div>
+                <div className="text-xs text-foreground/40">{t.artist}</div>
                 <h3 className="font-semibold">{t.title}</h3>
-                <div className="mt-1 text-xs text-white/40">
+                <div className="mt-1 text-xs text-foreground/40">
                   {t.genre} · {t.duration}
                 </div>
                 <div className="mt-4 flex items-center justify-between">
@@ -182,7 +182,7 @@ export function Marketplace() {
                   <button
                     type="button"
                     onClick={() => buy(`Трек «${t.title}»`, t.price)}
-                    className="inline-flex items-center gap-1 rounded-xl border border-white/15 px-3 py-1.5 text-xs font-medium transition hover:border-gold/50 hover:text-gold"
+                    className="inline-flex items-center gap-1 rounded-xl border border-foreground/15 px-3 py-1.5 text-xs font-medium transition hover:border-gold/50 hover:text-gold"
                   >
                     <Tag size={12} />
                     Запросить

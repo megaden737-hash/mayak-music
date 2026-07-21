@@ -26,7 +26,7 @@ export default async function ApplyPage({ searchParams }: Props) {
           <h1 className="mt-3 font-display text-4xl font-semibold tracking-tight md:text-5xl">
             {isCareer ? "Заявка на собеседование" : "Что тебе нужно?"}
           </h1>
-          <p className="mt-4 max-w-md text-lg text-white/55">
+          <p className="mt-4 max-w-md text-lg text-foreground/55">
             {isCareer
               ? "Расскажи о себе в квизе или оставь контакты — свяжемся и пригласим на разговор."
               : "Короткий квиз — и мы поймём, чем помочь. Бонус −20% на первую услугу + бесплатная экскурсия."}
@@ -47,7 +47,7 @@ export default async function ApplyPage({ searchParams }: Props) {
             ).map((t) => (
               <div
                 key={t}
-                className="flex items-start gap-3 text-sm text-white/60"
+                className="flex items-start gap-3 text-sm text-foreground/60"
               >
                 <span className="mt-0.5 text-gold">✓</span>
                 {t}
@@ -55,8 +55,8 @@ export default async function ApplyPage({ searchParams }: Props) {
             ))}
           </div>
 
-          <div className="mt-10 rounded-2xl border border-white/10 bg-white/[0.03] p-5 text-sm text-white/45">
-            <div className="font-medium text-white/80">Или напиши сразу</div>
+          <div className="mt-10 rounded-2xl border border-foreground/10 bg-navy-elevated p-5 text-sm text-foreground/45">
+            <div className="font-medium text-foreground/80">Или напиши сразу</div>
             <p className="mt-2">
               {SITE.phones.map((p) => p.label).join(" · ")}
               <br />

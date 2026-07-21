@@ -76,7 +76,7 @@ export function LeadQuiz({ compact = false }: { compact?: boolean }) {
         <h3 className="font-display text-2xl font-semibold tracking-tight">
           Заявка принята
         </h3>
-        <p className="mx-auto mt-2 max-w-sm text-white/60">
+        <p className="mx-auto mt-2 max-w-sm text-foreground/60">
           Спасибо, {form.name.split(" ")[0] || "друг"}! Мы свяжемся в ближайшие
           часы. Бонус −20% закреплён за тобой.
         </p>
@@ -95,7 +95,7 @@ export function LeadQuiz({ compact = false }: { compact?: boolean }) {
   return (
     <div
       className={cn(
-        "rounded-3xl border border-white/10 bg-white/[0.03] p-6 md:p-8",
+        "rounded-3xl border border-foreground/10 bg-navy-elevated p-6 md:p-8",
         compact && "p-5",
       )}
     >
@@ -117,14 +117,14 @@ export function LeadQuiz({ compact = false }: { compact?: boolean }) {
                 key={opt.id}
                 type="button"
                 onClick={() => pick(opt.id, opt.next)}
-                className="group flex items-center justify-between rounded-2xl border border-white/10 bg-white/[0.03] px-5 py-4 text-left transition hover:border-gold/40 hover:bg-gold/5"
+                className="group flex items-center justify-between rounded-2xl border border-foreground/10 bg-navy-elevated px-5 py-4 text-left transition hover:border-gold/40 hover:bg-gold/5"
               >
-                <span className="font-medium text-white/90 group-hover:text-white">
+                <span className="font-medium text-foreground/90 group-hover:text-foreground">
                   {opt.label}
                 </span>
                 <ArrowRight
                   size={18}
-                  className="text-white/30 transition group-hover:text-gold"
+                  className="text-foreground/30 transition group-hover:text-gold"
                 />
               </button>
             ))}
@@ -137,7 +137,7 @@ export function LeadQuiz({ compact = false }: { compact?: boolean }) {
           <h3 className="font-display text-2xl leading-tight tracking-tight md:text-3xl">
             Куда прислать ответ?
           </h3>
-          <p className="text-sm text-white/50">
+          <p className="text-sm text-foreground/50">
             Бонус −20% на первую услугу. {SITE.responseSla}.
           </p>
           <input
@@ -145,7 +145,7 @@ export function LeadQuiz({ compact = false }: { compact?: boolean }) {
             placeholder="Имя"
             value={form.name}
             onChange={(e) => setForm({ ...form, name: e.target.value })}
-            className="w-full rounded-2xl border border-white/10 bg-navy px-4 py-3.5 text-sm outline-none transition focus:border-gold/50"
+            className="w-full rounded-2xl border border-foreground/10 bg-navy px-4 py-3.5 text-sm outline-none transition focus:border-gold/50"
           />
           <input
             required
@@ -153,13 +153,13 @@ export function LeadQuiz({ compact = false }: { compact?: boolean }) {
             placeholder="Телефон"
             value={form.phone}
             onChange={(e) => setForm({ ...form, phone: e.target.value })}
-            className="w-full rounded-2xl border border-white/10 bg-navy px-4 py-3.5 text-sm outline-none transition focus:border-gold/50"
+            className="w-full rounded-2xl border border-foreground/10 bg-navy px-4 py-3.5 text-sm outline-none transition focus:border-gold/50"
           />
           <input
             placeholder="Telegram или email"
             value={form.contact}
             onChange={(e) => setForm({ ...form, contact: e.target.value })}
-            className="w-full rounded-2xl border border-white/10 bg-navy px-4 py-3.5 text-sm outline-none transition focus:border-gold/50"
+            className="w-full rounded-2xl border border-foreground/10 bg-navy px-4 py-3.5 text-sm outline-none transition focus:border-gold/50"
           />
           {error && (
             <p className="text-sm text-red-400">
@@ -172,9 +172,9 @@ export function LeadQuiz({ compact = false }: { compact?: boolean }) {
           <Button type="submit" size="lg" className="w-full" disabled={submitting}>
             {submitting ? "Отправляем…" : "Получить −20% и ответ"}
           </Button>
-          <p className="text-center text-xs text-white/35">
+          <p className="text-center text-xs text-foreground/35">
             Нажимая кнопку, ты соглашаешься с{" "}
-            <a href="/privacy" className="underline hover:text-white/60">
+            <a href="/privacy" className="underline hover:text-foreground/60">
               политикой
             </a>
           </p>
@@ -185,7 +185,7 @@ export function LeadQuiz({ compact = false }: { compact?: boolean }) {
         <button
           type="button"
           onClick={back}
-          className="mt-5 inline-flex items-center gap-1.5 text-sm text-white/45 transition hover:text-white"
+          className="mt-5 inline-flex items-center gap-1.5 text-sm text-foreground/45 transition hover:text-foreground"
         >
           <ArrowLeft size={14} />
           Назад

@@ -39,13 +39,13 @@ export function Header() {
           className={cn(
             "mx-auto flex h-14 max-w-7xl items-center justify-between rounded-2xl border px-4 transition-all duration-300 md:h-16 md:px-5",
             scrolled
-              ? "border-white/10 bg-navy/90 shadow-xl shadow-black/30 backdrop-blur-xl"
-              : "border-white/10 bg-navy/70 backdrop-blur-md",
+              ? "border-foreground/10 bg-navy/90 shadow-xl shadow-foreground/10 backdrop-blur-xl"
+              : "border-foreground/10 bg-navy/70 backdrop-blur-md",
           )}
         >
           <div className="flex items-center gap-2">
             <Logo size="sm" />
-            <div className="hidden text-[10px] tracking-wide text-white/40 uppercase sm:block">
+            <div className="hidden text-[10px] tracking-wide text-foreground/40 uppercase sm:block">
               {SITE.city} · {SITE.since}
             </div>
           </div>
@@ -64,8 +64,8 @@ export function Header() {
                   className={cn(
                     "rounded-xl px-3.5 py-2 text-sm font-medium transition-colors",
                     active
-                      ? "bg-white/10 text-gold"
-                      : "text-white/70 hover:bg-white/5 hover:text-white",
+                      ? "bg-foreground/5 text-gold"
+                      : "text-foreground/70 hover:bg-foreground/5 hover:text-foreground",
                   )}
                 >
                   {item.label}
@@ -77,7 +77,7 @@ export function Header() {
           <div className="flex items-center gap-2">
             <Link
               href="/account"
-              className="hidden text-sm text-white/45 transition hover:text-white md:inline"
+              className="hidden text-sm text-foreground/45 transition hover:text-foreground md:inline"
             >
               Войти
             </Link>
@@ -91,7 +91,7 @@ export function Header() {
               type="button"
               aria-label={open ? "Закрыть меню" : "Открыть меню"}
               aria-expanded={open}
-              className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 text-white lg:hidden"
+              className="flex h-10 w-10 items-center justify-center rounded-xl border border-foreground/10 text-foreground lg:hidden"
               onClick={() => setOpen((v) => !v)}
             >
               {open ? <X size={18} /> : <Menu size={18} />}
@@ -117,8 +117,8 @@ export function Header() {
                   className={cn(
                     "rounded-2xl border border-transparent px-4 py-4 text-2xl font-medium tracking-tight transition",
                     active
-                      ? "border-white/10 bg-white/5 text-gold"
-                      : "text-white/85 hover:bg-white/5",
+                      ? "border-foreground/10 bg-foreground/5 text-gold"
+                      : "text-foreground/85 hover:bg-foreground/5",
                   )}
                 >
                   {item.label}
@@ -127,7 +127,7 @@ export function Header() {
             })}
             <Link
               href="/account"
-              className="rounded-2xl px-4 py-4 text-lg text-white/50"
+              className="rounded-2xl px-4 py-4 text-lg text-foreground/50"
             >
               Войти в кабинет
             </Link>
@@ -139,7 +139,7 @@ export function Header() {
             <Button href="/apply" variant="outline" size="lg" className="w-full">
               Оставить заявку
             </Button>
-            <p className="text-center text-sm text-white/40">{SITE.address}</p>
+            <p className="text-center text-sm text-foreground/40">{SITE.address}</p>
           </div>
         </div>
       </div>

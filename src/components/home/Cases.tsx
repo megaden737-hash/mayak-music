@@ -22,7 +22,7 @@ export function Cases() {
         {CASES.map((c) => (
           <article
             key={c.id}
-            className="group overflow-hidden rounded-3xl border border-white/10 bg-navy-elevated"
+            className="group overflow-hidden rounded-3xl border border-foreground/10 bg-navy-elevated"
           >
             <div className="relative h-48 overflow-hidden md:h-56">
               <Image
@@ -37,7 +37,7 @@ export function Cases() {
                 {c.tags.map((t) => (
                   <span
                     key={t}
-                    className="rounded-full border border-white/15 bg-black/40 px-2.5 py-1 text-[11px] text-white/80 backdrop-blur"
+                    className="rounded-full border border-foreground/15 bg-white/85 px-2.5 py-1 text-[11px] text-foreground/80 backdrop-blur"
                   >
                     {t}
                   </span>
@@ -47,7 +47,7 @@ export function Cases() {
             <div className="p-6">
               <div className="flex items-start justify-between gap-4">
                 <div>
-                  <div className="text-sm text-white/45">{c.artist}</div>
+                  <div className="text-sm text-foreground/45">{c.artist}</div>
                   <h3 className="font-display text-2xl font-semibold tracking-tight">
                     {c.title}
                   </h3>
@@ -56,8 +56,8 @@ export function Cases() {
                   {c.metric}
                 </div>
               </div>
-              <p className="mt-2 text-sm font-medium text-white/85">{c.result}</p>
-              <p className="mt-1 text-sm leading-relaxed text-white/50">
+              <p className="mt-2 text-sm font-medium text-foreground/85">{c.result}</p>
+              <p className="mt-1 text-sm leading-relaxed text-foreground/50">
                 {c.detail}
               </p>
               {Object.keys(c.links).length > 0 ? (
@@ -68,7 +68,7 @@ export function Cases() {
                       href={href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-xs font-medium tracking-wide text-white/50 uppercase transition hover:text-gold"
+                      className="inline-flex items-center gap-1.5 text-xs font-medium tracking-wide text-foreground/50 uppercase transition hover:text-gold"
                     >
                       {platform}
                       <ExternalLink size={12} />
@@ -76,7 +76,7 @@ export function Cases() {
                   ))}
                 </div>
               ) : (
-                <p className="mt-4 text-xs text-white/30">
+                <p className="mt-4 text-xs text-foreground/30">
                   Стриминг-ссылка по запросу
                 </p>
               )}

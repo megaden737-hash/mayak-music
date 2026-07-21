@@ -134,15 +134,15 @@ export function DistributionForm() {
         <h3 className="font-display text-2xl font-semibold">
           Заявка на релиз принята
         </h3>
-        <p className="mx-auto mt-3 max-w-md text-sm leading-relaxed text-white/60">
+        <p className="mx-auto mt-3 max-w-md text-sm leading-relaxed text-foreground/60">
           Мы получили метаданные по «{form.trackTitle}» · {form.artist}.
           Осталось прислать файлы в Telegram — трек и обложку, которые ты
           выбрал на форме.
         </p>
-        <div className="mx-auto mt-5 max-w-sm rounded-2xl border border-white/10 bg-black/20 px-4 py-3 text-left text-xs text-white/50">
+        <div className="mx-auto mt-5 max-w-sm rounded-2xl border border-foreground/10 bg-foreground/5 px-4 py-3 text-left text-xs text-foreground/50">
           <div>Трек: {audio?.name}</div>
           <div>Обложка: {cover?.name}</div>
-          <div className="mt-1 text-white/35">
+          <div className="mt-1 text-foreground/35">
             Напиши: «Релиз {form.artist} / {form.trackTitle}»
           </div>
         </div>
@@ -156,7 +156,7 @@ export function DistributionForm() {
   return (
     <form
       onSubmit={onSubmit}
-      className="rounded-3xl border border-white/10 bg-white/[0.03] p-5 md:p-8"
+      className="rounded-3xl border border-foreground/10 bg-navy-elevated p-5 md:p-8"
     >
       <div className="mb-6">
         <div className="text-xs font-medium tracking-[0.16em] text-gold uppercase">
@@ -165,7 +165,7 @@ export function DistributionForm() {
         <h3 className="mt-2 font-display text-2xl font-semibold tracking-tight md:text-3xl">
           Отправить релиз на отгрузку
         </h3>
-        <p className="mt-2 text-sm text-white/50">
+        <p className="mt-2 text-sm text-foreground/50">
           Заявка на проверку. После модерации — выгрузка на Spotify, Apple, VK,
           Яндекс, TikTok и 150+. Дистрибуция от 3 900 ₽.
         </p>
@@ -191,18 +191,18 @@ export function DistributionForm() {
           placeholder="Hip-Hop, Pop…"
         />
         <div>
-          <label className="mb-1.5 block text-xs text-white/45">
+          <label className="mb-1.5 block text-xs text-foreground/45">
             Желаемая дата релиза
           </label>
           <input
             type="date"
             value={form.releaseDate}
             onChange={(e) => setForm({ ...form, releaseDate: e.target.value })}
-            className="w-full rounded-2xl border border-white/10 bg-navy px-4 py-3 text-sm outline-none focus:border-gold/50"
+            className="w-full rounded-2xl border border-foreground/10 bg-navy px-4 py-3 text-sm outline-none focus:border-gold/50"
           />
         </div>
         <div>
-          <label className="mb-1.5 block text-xs text-white/45">Explicit</label>
+          <label className="mb-1.5 block text-xs text-foreground/45">Explicit</label>
           <select
             value={form.explicit}
             onChange={(e) =>
@@ -211,7 +211,7 @@ export function DistributionForm() {
                 explicit: e.target.value as "yes" | "no",
               })
             }
-            className="w-full rounded-2xl border border-white/10 bg-navy px-4 py-3 text-sm outline-none focus:border-gold/50"
+            className="w-full rounded-2xl border border-foreground/10 bg-navy px-4 py-3 text-sm outline-none focus:border-gold/50"
           >
             <option value="no">Нет</option>
             <option value="yes">Да</option>
@@ -254,14 +254,14 @@ export function DistributionForm() {
             "flex min-h-[140px] flex-col items-center justify-center gap-2 rounded-2xl border border-dashed px-4 py-6 text-center transition",
             audio
               ? "border-gold/40 bg-gold/5"
-              : "border-white/15 bg-white/[0.02] hover:border-white/30",
+              : "border-foreground/15 bg-navy-elevated hover:border-foreground/30",
           )}
         >
           <FileAudio size={22} className="text-gold" />
           <div className="text-sm font-medium">
             {audio ? audio.name : "Трек * (MP3 / WAV / FLAC)"}
           </div>
-          <div className="text-xs text-white/40">
+          <div className="text-xs text-foreground/40">
             {audio
               ? `${(audio.size / 1024 / 1024).toFixed(1)} МБ`
               : `до ${MAX_AUDIO_MB} МБ · клик для выбора`}
@@ -282,7 +282,7 @@ export function DistributionForm() {
             "relative flex min-h-[140px] flex-col items-center justify-center gap-2 overflow-hidden rounded-2xl border border-dashed px-4 py-6 text-center transition",
             cover
               ? "border-gold/40 bg-gold/5"
-              : "border-white/15 bg-white/[0.02] hover:border-white/30",
+              : "border-foreground/15 bg-navy-elevated hover:border-foreground/30",
           )}
         >
           {coverPreview ? (
@@ -299,7 +299,7 @@ export function DistributionForm() {
             <div className="text-sm font-medium">
               {cover ? cover.name : "Обложка * (JPG / PNG)"}
             </div>
-            <div className="text-xs text-white/40">
+            <div className="text-xs text-foreground/40">
               лучше 3000×3000 · до {MAX_IMAGE_MB} МБ
             </div>
           </div>
@@ -313,7 +313,7 @@ export function DistributionForm() {
         </button>
       </div>
 
-      <label className="mt-6 flex cursor-pointer items-start gap-3 text-sm text-white/55">
+      <label className="mt-6 flex cursor-pointer items-start gap-3 text-sm text-foreground/55">
         <input
           type="checkbox"
           checked={form.agree}
@@ -344,7 +344,7 @@ export function DistributionForm() {
         <Upload size={18} />
         {submitting ? "Отправляем…" : "Отправить заявку на релиз"}
       </Button>
-      <p className="mt-3 text-center text-xs text-white/35">
+      <p className="mt-3 text-center text-xs text-foreground/35">
         Файлы на сервер не грузятся — после заявки прикрепи их в Telegram.
         Менеджер свяжет метаданные с файлами.
       </p>
@@ -371,14 +371,14 @@ function Field({
 }) {
   return (
     <div className={className}>
-      <label className="mb-1.5 block text-xs text-white/45">{label}</label>
+      <label className="mb-1.5 block text-xs text-foreground/45">{label}</label>
       <input
         type={type}
         required={required}
         value={value}
         placeholder={placeholder}
         onChange={(e) => onChange(e.target.value)}
-        className="w-full rounded-2xl border border-white/10 bg-navy px-4 py-3 text-sm outline-none transition focus:border-gold/50"
+        className="w-full rounded-2xl border border-foreground/10 bg-navy px-4 py-3 text-sm outline-none transition focus:border-gold/50"
       />
     </div>
   );

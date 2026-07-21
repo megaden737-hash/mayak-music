@@ -13,7 +13,7 @@ export default function OfferPage() {
       <h1 className="font-display text-3xl font-semibold tracking-tight md:text-5xl">
         Публичная оферта
       </h1>
-      <div className="mt-8 max-w-3xl space-y-4 text-sm leading-relaxed text-white/60">
+      <div className="mt-8 max-w-3xl space-y-4 text-sm leading-relaxed text-foreground/60">
         <p>
           Настоящий документ является предложением {SITE.name} заключить договор
           на оказание услуг (аренда студии, продакшн, обучение, продвижение) на
@@ -27,7 +27,7 @@ export default function OfferPage() {
         <p>
           Контакты: {SITE.email}, {SITE.phone}, {SITE.address}.
         </p>
-        <p className="text-white/40">
+        <p className="text-foreground/40">
           Шаблон. Перед коммерческим использованием замени на юридически
           выверенную оферту.
         </p>

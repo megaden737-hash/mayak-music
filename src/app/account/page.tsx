@@ -47,7 +47,7 @@ export default function AccountPage() {
         <div className="mb-6 rounded-2xl border border-amber-400/25 bg-amber-400/10 px-4 py-3 text-sm text-amber-100/90">
           <strong className="font-semibold">Демо-режим.</strong> Авторизация и
           реальные заказы подключаются. Чтобы работать с нами сейчас —{" "}
-          <a href="/apply" className="underline hover:text-white">
+          <a href="/apply" className="underline hover:text-foreground">
             оставь заявку
           </a>{" "}
           или напиши в Telegram.
@@ -61,7 +61,7 @@ export default function AccountPage() {
             <h1 className="mt-2 font-display text-3xl font-semibold tracking-tight md:text-5xl">
               Привет, Артист
             </h1>
-            <p className="mt-2 text-white/50">
+            <p className="mt-2 text-foreground/50">
               Так будет выглядеть твой личный кабинет: треки, заказы, корзина.
             </p>
           </div>
@@ -74,7 +74,7 @@ export default function AccountPage() {
         <div className="grid gap-6 lg:grid-cols-12">
           {/* Sidebar */}
           <aside className="lg:col-span-3">
-            <div className="rounded-3xl border border-white/10 bg-navy-elevated p-3">
+            <div className="rounded-3xl border border-foreground/10 bg-navy-elevated p-3">
               <nav className="flex gap-1 overflow-x-auto lg:flex-col">
                 {TABS.map((t) => {
                   const Icon = t.icon;
@@ -87,7 +87,7 @@ export default function AccountPage() {
                         "flex shrink-0 items-center gap-2.5 rounded-2xl px-4 py-3 text-sm font-medium transition",
                         tab === t.id
                           ? "bg-gold text-black"
-                          : "text-white/60 hover:bg-white/5 hover:text-white",
+                          : "text-foreground/60 hover:bg-foreground/5 hover:text-foreground",
                       )}
                     >
                       <Icon size={16} />
@@ -97,8 +97,8 @@ export default function AccountPage() {
                           className={cn(
                             "ml-auto rounded-full px-1.5 text-[10px] font-bold",
                             tab === t.id
-                              ? "bg-black/15"
-                              : "bg-white/10 text-white/70",
+                              ? "bg-foreground/10"
+                              : "bg-foreground/5 text-foreground/70",
                           )}
                         >
                           {CART_ITEMS.length}
@@ -113,7 +113,7 @@ export default function AccountPage() {
 
           {/* Content */}
           <div className="lg:col-span-9">
-            <div className="min-h-[420px] rounded-3xl border border-white/10 bg-navy-elevated p-6 md:p-8">
+            <div className="min-h-[420px] rounded-3xl border border-foreground/10 bg-navy-elevated p-6 md:p-8">
               {tab === "profile" && (
                 <div className="space-y-8">
                   <div className="flex flex-col gap-5 sm:flex-row sm:items-center">
@@ -130,11 +130,11 @@ export default function AccountPage() {
                       <h2 className="font-display text-2xl font-semibold">
                         Demo Artist
                       </h2>
-                      <p className="text-sm text-white/45">
+                      <p className="text-sm text-foreground/45">
                         artist@mayak.music · Москва
                       </p>
                       <div className="mt-2 flex flex-wrap gap-2">
-                        <span className="rounded-full bg-white/5 px-3 py-1 text-xs text-white/60">
+                        <span className="rounded-full bg-foreground/5 px-3 py-1 text-xs text-foreground/60">
                           Hip-Hop / Pop
                         </span>
                         <span className="rounded-full bg-gold/10 px-3 py-1 text-xs text-gold">
@@ -151,17 +151,17 @@ export default function AccountPage() {
                     ].map(([k, v]) => (
                       <div
                         key={k}
-                        className="rounded-2xl border border-white/10 bg-white/[0.03] p-4"
+                        className="rounded-2xl border border-foreground/10 bg-navy-elevated p-4"
                       >
-                        <div className="text-xs text-white/40">{k}</div>
+                        <div className="text-xs text-foreground/40">{k}</div>
                         <div className="mt-1 font-display text-2xl font-semibold">
                           {v}
                         </div>
                       </div>
                     ))}
                   </div>
-                  <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-5 text-sm text-white/55">
-                    <div className="font-medium text-white">Контакты агентства</div>
+                  <div className="rounded-2xl border border-foreground/10 bg-navy-elevated p-5 text-sm text-foreground/55">
+                    <div className="font-medium text-foreground">Контакты агентства</div>
                     <p className="mt-2">
                       {SITE.phone} · {SITE.email}
                       <br />
@@ -176,25 +176,25 @@ export default function AccountPage() {
                   <h2 className="font-display text-2xl font-semibold">
                     Мои треки
                   </h2>
-                  <p className="mt-1 text-sm text-white/45">
+                  <p className="mt-1 text-sm text-foreground/45">
                     Статусы продакшна в реальном времени (демо).
                   </p>
                   <div className="mt-6 space-y-4">
                     {ACCOUNT_TRACKS.map((t) => (
                       <div
                         key={t.title}
-                        className="rounded-2xl border border-white/10 bg-white/[0.03] p-5"
+                        className="rounded-2xl border border-foreground/10 bg-navy-elevated p-5"
                       >
                         <div className="flex items-center justify-between gap-4">
                           <div>
                             <div className="font-semibold">{t.title}</div>
-                            <div className="text-sm text-white/45">{t.status}</div>
+                            <div className="text-sm text-foreground/45">{t.status}</div>
                           </div>
                           <div className="text-sm font-medium text-gold">
                             {t.progress}%
                           </div>
                         </div>
-                        <div className="mt-3 h-2 overflow-hidden rounded-full bg-white/10">
+                        <div className="mt-3 h-2 overflow-hidden rounded-full bg-foreground/5">
                           <div
                             className="h-full rounded-full bg-gold transition-all"
                             style={{ width: `${t.progress}%` }}
@@ -215,12 +215,12 @@ export default function AccountPage() {
                       return (
                         <div
                           key={o.id}
-                          className="flex flex-col gap-3 rounded-2xl border border-white/10 bg-white/[0.03] p-4 sm:flex-row sm:items-center sm:justify-between"
+                          className="flex flex-col gap-3 rounded-2xl border border-foreground/10 bg-navy-elevated p-4 sm:flex-row sm:items-center sm:justify-between"
                         >
                           <div>
-                            <div className="text-xs text-white/35">{o.id}</div>
+                            <div className="text-xs text-foreground/35">{o.id}</div>
                             <div className="font-medium">{o.title}</div>
-                            <div className="text-sm text-white/40">{o.date}</div>
+                            <div className="text-sm text-foreground/40">{o.date}</div>
                           </div>
                           <div className="flex items-center gap-3">
                             <span
@@ -249,7 +249,7 @@ export default function AccountPage() {
                     {CART_ITEMS.map((item) => (
                       <div
                         key={item.name}
-                        className="flex items-center justify-between border-b border-white/10 py-3 text-sm"
+                        className="flex items-center justify-between border-b border-foreground/10 py-3 text-sm"
                       >
                         <span>{item.name}</span>
                         <span className="font-semibold">
@@ -259,7 +259,7 @@ export default function AccountPage() {
                     ))}
                   </div>
                   <div className="mt-6 flex items-center justify-between">
-                    <span className="text-white/50">Итого</span>
+                    <span className="text-foreground/50">Итого</span>
                     <span className="font-display text-2xl font-semibold">
                       {formatPrice(cartTotal)}
                     </span>
@@ -275,7 +275,7 @@ export default function AccountPage() {
                   <h2 className="font-display text-2xl font-semibold">
                     Быстрый заказ
                   </h2>
-                  <p className="mt-1 text-sm text-white/45">
+                  <p className="mt-1 text-sm text-foreground/45">
                     Один клик — заявка менеджеру.
                   </p>
                   <div className="mt-6 grid gap-3 sm:grid-cols-2">

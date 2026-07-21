@@ -78,7 +78,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ru" className={`${inter.variable} ${spaceGrotesk.variable}`}>
-      <body className="min-h-screen bg-navy font-sans text-white antialiased">
+      <body className="min-h-screen bg-background font-sans text-foreground antialiased">
         <YandexMetrika />
         <Header />
         <main>{children}</main>

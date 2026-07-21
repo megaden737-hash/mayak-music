@@ -1,28 +1,31 @@
 @import "tailwindcss";
 
 :root {
-  /* Cold midnight blue — no green/teal swamp */
-  --background: #0a1628;
-  --background-elevated: #132844;
-  --foreground: #f4f7fb;
-  --muted: rgba(244, 247, 251, 0.6);
-  --border: rgba(255, 255, 255, 0.1);
+  /* Light theme: white surfaces + bright blue ink */
+  --background: #ffffff;
+  --background-elevated: #f4f8fc;
+  --background-muted: #eef4fb;
+  --foreground: #0a4fff;
+  --foreground-strong: #0636c9;
+  --muted: rgba(10, 79, 255, 0.55);
+  --border: rgba(10, 79, 255, 0.12);
 
-  --gold: #e8b84a;
-  --gold-hot: #f5c451;
-  --gold-soft: rgba(232, 184, 74, 0.14);
-  --gold-on: #0a1628;
+  /* Primary = bright blue (token name gold kept for fewer renames) */
+  --gold: #0a4fff;
+  --gold-hot: #0636c9;
+  --gold-soft: rgba(10, 79, 255, 0.08);
+  --gold-on: #ffffff;
 
-  /* Clean mid-blue accents only — not body */
   --sea: #3d8fd1;
-  --sea-deep: #1e5a9e;
-  --sea-soft: rgba(61, 143, 209, 0.12);
-  --foam: #c5ddf5;
+  --sea-deep: #0a4fff;
+  --sea-soft: rgba(10, 79, 255, 0.06);
+  --foam: #dbe8ff;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-foreground-strong: var(--foreground-strong);
   --color-gold: var(--gold);
   --color-gold-hot: var(--gold-hot);
   --color-gold-soft: var(--gold-soft);
@@ -30,8 +33,9 @@
   --color-sea-deep: var(--sea-deep);
   --color-sea-soft: var(--sea-soft);
   --color-foam: var(--foam);
-  --color-navy: #0a1628;
-  --color-navy-elevated: #132844;
+  /* Legacy class names: navy* = light surfaces */
+  --color-navy: #ffffff;
+  --color-navy-elevated: #f4f8fc;
   --font-sans: var(--font-sans);
   --font-display: var(--font-display);
 }
@@ -57,12 +61,12 @@ body {
 }
 
 ::selection {
-  background: rgba(232, 184, 74, 0.35);
-  color: #fff;
+  background: rgba(10, 79, 255, 0.18);
+  color: #0636c9;
 }
 
 :focus-visible {
-  outline: 2px solid rgba(232, 184, 74, 0.75);
+  outline: 2px solid rgba(10, 79, 255, 0.55);
   outline-offset: 2px;
 }
 
@@ -71,14 +75,14 @@ body {
   height: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: #0a1628;
+  background: #f4f8fc;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(10, 79, 255, 0.2);
   border-radius: 999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(232, 184, 74, 0.35);
+  background: rgba(10, 79, 255, 0.35);
 }
 
 .h-13 {

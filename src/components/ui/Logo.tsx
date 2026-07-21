@@ -15,7 +15,7 @@ const markSize = {
 };
 
 /**
- * Classic Mayak mark: white rounded square + dark navy M.
+ * Light theme mark: bright blue rounded square + white M.
  */
 export function LogoMark({
   size = "sm",
@@ -27,7 +27,7 @@ export function LogoMark({
   return (
     <div
       className={cn(
-        "flex shrink-0 items-center justify-center bg-white text-navy shadow-sm transition group-hover:scale-[1.02]",
+        "flex shrink-0 items-center justify-center bg-gold text-white shadow-sm transition group-hover:scale-[1.02]",
         markSize[size],
         className,
       )}
@@ -53,7 +53,7 @@ export function Logo({
         <div className="leading-none">
           <div
             className={cn(
-              "font-display font-semibold tracking-tight text-white",
+              "font-display font-semibold tracking-tight text-foreground",
               size === "sm" && "text-[17px]",
               size === "md" && "text-xl",
               size === "lg" && "text-2xl",

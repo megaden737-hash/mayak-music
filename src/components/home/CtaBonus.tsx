@@ -31,7 +31,7 @@ export function CtaBonus() {
 
   return (
     <Section id="bonus" className="pb-24">
-      <div className="grid items-start gap-8 overflow-hidden rounded-[2rem] border border-white/10 bg-gradient-to-br from-[#0f172a] via-[#132844] to-[#0a1a0a] p-6 md:grid-cols-2 md:p-10 lg:p-12">
+      <div className="grid items-start gap-8 overflow-hidden rounded-[2rem] border border-foreground/10 bg-gradient-to-br from-[#0f172a] via-[#132844] to-[#0a1a0a] p-6 md:grid-cols-2 md:p-10 lg:p-12">
         <div>
           <div className="text-xs font-medium tracking-[0.2em] text-gold uppercase">
             Акция месяца
@@ -39,7 +39,7 @@ export function CtaBonus() {
           <h2 className="mt-3 font-display text-3xl leading-tight font-semibold tracking-tight md:text-5xl">
             −20% на первую услугу
           </h2>
-          <p className="mt-4 max-w-md text-white/60">
+          <p className="mt-4 max-w-md text-foreground/60">
             До конца месяца: скидка на первый заказ. Плюс бесплатная экскурсия
             по студиям и пробный урок в School.
           </p>
@@ -53,19 +53,19 @@ export function CtaBonus() {
             ].map(([val, label]) => (
               <div
                 key={label}
-                className="min-w-[64px] rounded-2xl border border-white/10 bg-black/30 px-3 py-3 text-center"
+                className="min-w-[64px] rounded-2xl border border-foreground/10 bg-foreground/5 px-3 py-3 text-center"
               >
                 <div className="font-display text-2xl font-semibold tabular-nums">
                   {val}
                 </div>
-                <div className="text-[10px] tracking-wide text-white/40 uppercase">
+                <div className="text-[10px] tracking-wide text-foreground/40 uppercase">
                   {label}
                 </div>
               </div>
             ))}
           </div>
 
-          <ul className="mt-8 space-y-2 text-sm text-white/55">
+          <ul className="mt-8 space-y-2 text-sm text-foreground/55">
             <li className="flex gap-2">
               <span className="text-gold">✓</span> Ответ в Telegram в день заявки
             </li>

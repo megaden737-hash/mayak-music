@@ -16,7 +16,7 @@ export function Faq() {
         title="Частые вопросы"
         description="Коротко о брони, ценах, сроках и формате работы."
       />
-      <div className="mx-auto max-w-3xl divide-y divide-white/10 rounded-3xl border border-white/10 bg-white/[0.02]">
+      <div className="mx-auto max-w-3xl divide-y divide-white/10 rounded-3xl border border-foreground/10 bg-navy-elevated">
         {FAQ.map((item, i) => {
           const isOpen = open === i;
           return (
@@ -27,11 +27,11 @@ export function Faq() {
                 className="flex w-full items-center justify-between gap-4 px-5 py-5 text-left md:px-6"
                 aria-expanded={isOpen}
               >
-                <span className="font-medium text-white/90">{item.q}</span>
+                <span className="font-medium text-foreground/90">{item.q}</span>
                 <ChevronDown
                   size={18}
                   className={cn(
-                    "shrink-0 text-white/40 transition",
+                    "shrink-0 text-foreground/40 transition",
                     isOpen && "rotate-180 text-gold",
                   )}
                 />
@@ -43,7 +43,7 @@ export function Faq() {
                 )}
               >
                 <div className="overflow-hidden">
-                  <p className="px-5 pb-5 text-sm leading-relaxed text-white/55 md:px-6">
+                  <p className="px-5 pb-5 text-sm leading-relaxed text-foreground/55 md:px-6">
                     {item.a}
                   </p>
                 </div>

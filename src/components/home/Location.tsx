@@ -12,21 +12,21 @@ export function Location() {
         description="Креативный кластер Красный Октябрь — в центре Москвы."
       />
       <div className="grid gap-4 lg:grid-cols-5">
-        <div className="rounded-3xl border border-white/10 bg-navy-elevated p-6 lg:col-span-2">
+        <div className="rounded-3xl border border-foreground/10 bg-navy-elevated p-6 lg:col-span-2">
           <div className="flex items-start gap-3">
             <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gold/15 text-gold">
               <MapPin size={18} />
             </div>
             <div>
               <div className="font-semibold">{SITE.address}</div>
-              <ul className="mt-3 space-y-1.5 text-sm text-white/50">
+              <ul className="mt-3 space-y-1.5 text-sm text-foreground/50">
                 {SITE.metro.map((m) => (
                   <li key={m}>{m}</li>
                 ))}
               </ul>
             </div>
           </div>
-          <div className="mt-6 space-y-2 text-sm text-white/55">
+          <div className="mt-6 space-y-2 text-sm text-foreground/55">
             {SITE.phones.map((p) => (
               <p key={p.href}>
                 <a href={p.href} className="hover:text-gold">
@@ -61,7 +61,7 @@ export function Location() {
           </div>
         </div>
 
-        <div className="overflow-hidden rounded-3xl border border-white/10 lg:col-span-3">
+        <div className="overflow-hidden rounded-3xl border border-foreground/10 lg:col-span-3">
           <iframe
             title="Mayak Music на карте — Красный Октябрь"
             src={SITE.mapEmbed}

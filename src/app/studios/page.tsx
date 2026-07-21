@@ -27,7 +27,7 @@ export default function StudiosPage() {
             className="object-cover opacity-40"
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-navy/70 via-navy/85 to-navy" />
+          <div className="absolute inset-0 bg-gradient-to-b from-white/70 via-white/85 to-white" />
         </div>
         <div className="relative z-10 mx-auto max-w-7xl px-5 md:px-6">
           <div className="inline-flex items-center gap-2 text-xs font-medium tracking-[0.18em] text-gold uppercase">
@@ -37,7 +37,7 @@ export default function StudiosPage() {
           <h1 className="mt-4 max-w-3xl font-display text-4xl font-semibold tracking-tight md:text-6xl">
             Студии Mayak
           </h1>
-          <p className="mt-4 max-w-xl text-lg text-white/60">
+          <p className="mt-4 max-w-xl text-lg text-foreground/60">
             Три пространства для записи, репетиций и съёмок. Бронируй онлайн —
             без звонков и «занято, перезвоните».
           </p>
@@ -49,7 +49,7 @@ export default function StudiosPage() {
               Бесплатная экскурсия
             </Button>
           </div>
-          <div className="mt-10 flex flex-wrap gap-6 text-sm text-white/50">
+          <div className="mt-10 flex flex-wrap gap-6 text-sm text-foreground/50">
             {SITE.metro.map((m) => (
               <span key={m}>{m}</span>
             ))}
@@ -79,7 +79,7 @@ export default function StudiosPage() {
             />
           </div>
         </div>
-        <p className="mt-4 text-center text-sm text-white/40">
+        <p className="mt-4 text-center text-sm text-foreground/40">
           Креативный кластер Красный Октябрь · в центре Москвы
         </p>
       </Section>
@@ -97,7 +97,7 @@ export default function StudiosPage() {
             <article
               key={studio.id}
               id={studio.id}
-              className="overflow-hidden rounded-[1.75rem] border border-white/10 bg-navy-elevated"
+              className="overflow-hidden rounded-[1.75rem] border border-foreground/10 bg-navy-elevated"
             >
               <div className="grid lg:grid-cols-5">
                 <div className="flex flex-col justify-between p-6 md:p-8 lg:col-span-2">
@@ -108,10 +108,10 @@ export default function StudiosPage() {
                     <h2 className="mt-2 font-display text-3xl font-semibold tracking-tight md:text-4xl">
                       {studio.name}
                     </h2>
-                    <p className="mt-3 text-sm leading-relaxed text-white/55">
+                    <p className="mt-3 text-sm leading-relaxed text-foreground/55">
                       {studio.description}
                     </p>
-                    <div className="mt-5 flex flex-wrap gap-4 text-sm text-white/50">
+                    <div className="mt-5 flex flex-wrap gap-4 text-sm text-foreground/50">
                       <span className="inline-flex items-center gap-1.5">
                         <Ruler size={14} /> {studio.size}
                       </span>
@@ -123,7 +123,7 @@ export default function StudiosPage() {
                       {studio.features.map((f) => (
                         <span
                           key={f}
-                          className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/70"
+                          className="rounded-full border border-foreground/10 bg-foreground/5 px-3 py-1 text-xs text-foreground/70"
                         >
                           {f}
                         </span>
@@ -131,21 +131,21 @@ export default function StudiosPage() {
                     </div>
                   </div>
 
-                  <div className="mt-8 space-y-3 border-t border-white/10 pt-6">
+                  <div className="mt-8 space-y-3 border-t border-foreground/10 pt-6">
                     <div className="flex justify-between text-sm">
-                      <span className="text-white/50">Репетиция</span>
+                      <span className="text-foreground/50">Репетиция</span>
                       <span className="font-semibold">
                         {formatPrice(studio.prices.rehearsal)} / час
                       </span>
                     </div>
                     <div className="flex justify-between text-sm">
-                      <span className="text-white/50">Запись</span>
+                      <span className="text-foreground/50">Запись</span>
                       <span className="font-semibold">
                         {formatPrice(studio.prices.recording)} / час
                       </span>
                     </div>
                     {"note" in studio && studio.note && (
-                      <p className="text-xs text-white/40">{studio.note}</p>
+                      <p className="text-xs text-foreground/40">{studio.note}</p>
                     )}
                     <Button href="#booking" className="mt-2 w-full">
                       Забронировать {studio.name}
@@ -153,7 +153,7 @@ export default function StudiosPage() {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-2 gap-px bg-white/10 lg:col-span-3">
+                <div className="grid grid-cols-2 gap-px bg-foreground/5 lg:col-span-3">
                   {studio.images.map((src, i) => (
                     <div key={src + i} className="relative aspect-[4/3] bg-navy-elevated">
                       <Image
@@ -183,7 +183,7 @@ export default function StudiosPage() {
           {STUDIO_PACKS.map((p) => (
             <div
               key={p.hours}
-              className="rounded-3xl border border-white/10 bg-white/[0.03] p-6 text-center"
+              className="rounded-3xl border border-foreground/10 bg-navy-elevated p-6 text-center"
             >
               <div className="font-display text-3xl font-semibold">{p.label}</div>
               <div className="mt-2 text-gold">−{p.discount}%</div>

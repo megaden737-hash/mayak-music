@@ -14,15 +14,15 @@ export function Testimonials() {
         {TESTIMONIALS.map((t) => (
           <figure
             key={t.name}
-            className="flex flex-col rounded-3xl border border-white/10 bg-white/[0.03] p-6"
+            className="flex flex-col rounded-3xl border border-foreground/10 bg-navy-elevated p-6"
           >
             <div className="mb-4 inline-flex w-fit rounded-full bg-gold/10 px-2.5 py-1 text-[11px] font-medium text-gold">
               {t.result}
             </div>
-            <blockquote className="flex-1 text-[15px] leading-relaxed text-white/75">
+            <blockquote className="flex-1 text-[15px] leading-relaxed text-foreground/75">
               «{t.text}»
             </blockquote>
-            <figcaption className="mt-6 flex items-center gap-3 border-t border-white/10 pt-5">
+            <figcaption className="mt-6 flex items-center gap-3 border-t border-foreground/10 pt-5">
               <div className="relative h-11 w-11 overflow-hidden rounded-full">
                 <Image
                   src={t.avatar}
@@ -34,7 +34,7 @@ export function Testimonials() {
               </div>
               <div>
                 <div className="text-sm font-semibold">{t.name}</div>
-                <div className="text-xs text-white/40">{t.role}</div>
+                <div className="text-xs text-foreground/40">{t.role}</div>
               </div>
             </figcaption>
           </figure>

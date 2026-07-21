@@ -12,13 +12,13 @@ const socials = [
 
 export function Footer() {
   return (
-    <footer className="border-t border-white/10 bg-navy">
+    <footer className="border-t border-foreground/10 bg-navy">
       <div className="mx-auto max-w-7xl px-5 py-14 md:px-6 md:py-16">
         <div className="grid gap-10 md:grid-cols-12">
           <div className="md:col-span-5">
             <Logo size="md" />
-            <p className="mt-2 text-sm text-white/45">{SITE.tagline}</p>
-            <p className="mt-5 max-w-sm text-sm leading-relaxed text-white/55">
+            <p className="mt-2 text-sm text-foreground/45">{SITE.tagline}</p>
+            <p className="mt-5 max-w-sm text-sm leading-relaxed text-foreground/55">
               Студии, создание, обучение и продвижение. Москва, Красный Октябрь ·
               с {SITE.since}.
             </p>
@@ -33,7 +33,7 @@ export function Footer() {
           </div>
 
           <div className="md:col-span-2">
-            <div className="mb-4 text-xs font-medium tracking-[0.18em] text-white/40 uppercase">
+            <div className="mb-4 text-xs font-medium tracking-[0.18em] text-foreground/40 uppercase">
               Навигация
             </div>
             <ul className="space-y-2.5">
@@ -41,7 +41,7 @@ export function Footer() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="text-sm text-white/70 transition hover:text-gold"
+                    className="text-sm text-foreground/70 transition hover:text-gold"
                   >
                     {item.label}
                   </Link>
@@ -50,7 +50,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/apply"
-                  className="text-sm text-white/70 transition hover:text-gold"
+                  className="text-sm text-foreground/70 transition hover:text-gold"
                 >
                   Оставить заявку
                 </Link>
@@ -58,7 +58,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/account"
-                  className="text-sm text-white/70 transition hover:text-gold"
+                  className="text-sm text-foreground/70 transition hover:text-gold"
                 >
                   Кабинет
                 </Link>
@@ -67,13 +67,13 @@ export function Footer() {
           </div>
 
           <div className="md:col-span-3">
-            <div className="mb-4 text-xs font-medium tracking-[0.18em] text-white/40 uppercase">
+            <div className="mb-4 text-xs font-medium tracking-[0.18em] text-foreground/40 uppercase">
               Контакты
             </div>
-            <ul className="space-y-2.5 text-sm text-white/70">
+            <ul className="space-y-2.5 text-sm text-foreground/70">
               <li>{SITE.address}</li>
               {SITE.metro.map((m) => (
-                <li key={m} className="text-white/45">
+                <li key={m} className="text-foreground/45">
                   {m}
                 </li>
               ))}
@@ -106,7 +106,7 @@ export function Footer() {
           </div>
 
           <div className="md:col-span-2">
-            <div className="mb-4 text-xs font-medium tracking-[0.18em] text-white/40 uppercase">
+            <div className="mb-4 text-xs font-medium tracking-[0.18em] text-foreground/40 uppercase">
               Соцсети
             </div>
             <ul className="space-y-2.5">
@@ -116,7 +116,7 @@ export function Footer() {
                     href={s.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sm text-white/70 transition hover:text-gold"
+                    className="text-sm text-foreground/70 transition hover:text-gold"
                   >
                     {s.label}
                   </a>
@@ -126,15 +126,15 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col gap-3 border-t border-white/10 pt-6 text-xs text-white/35 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-12 flex flex-col gap-3 border-t border-foreground/10 pt-6 text-xs text-foreground/35 sm:flex-row sm:items-center sm:justify-between">
           <div>
             © {new Date().getFullYear()} Mayak Music. Все права защищены.
           </div>
           <div className="flex flex-wrap gap-4">
-            <Link href="/privacy" className="hover:text-white/60">
+            <Link href="/privacy" className="hover:text-foreground/60">
               Политика конфиденциальности
             </Link>
-            <Link href="/offer" className="hover:text-white/60">
+            <Link href="/offer" className="hover:text-foreground/60">
               Оферта
             </Link>
           </div>

@@ -37,7 +37,7 @@ export default function LearningPage() {
             className="object-cover opacity-35"
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-navy/75 to-navy" />
+          <div className="absolute inset-0 bg-gradient-to-b from-white/75 to-white" />
         </div>
         <div className="relative z-10 mx-auto flex max-w-7xl flex-col items-start gap-8 px-5 md:flex-row md:items-center md:justify-between md:px-6">
           <div className="max-w-2xl">
@@ -47,7 +47,7 @@ export default function LearningPage() {
             <h1 className="mt-3 font-display text-4xl font-semibold tracking-tight md:text-6xl">
               Учись так, как тебе удобно
             </h1>
-            <p className="mt-4 text-lg text-white/60">
+            <p className="mt-4 text-lg text-foreground/60">
               Пробный урок · записанные курсы · живые программы с преподом ·
               разовые уроки · вебинары и концерты.
             </p>
@@ -60,7 +60,7 @@ export default function LearningPage() {
               </Button>
             </div>
           </div>
-          <div className="relative h-40 w-40 shrink-0 overflow-hidden rounded-3xl border border-white/10 md:h-52 md:w-52">
+          <div className="relative h-40 w-40 shrink-0 overflow-hidden rounded-3xl border border-foreground/10 md:h-52 md:w-52">
             <Image
               src="/images/mascot.jpg"
               alt="Маскот Mayak School"
@@ -90,10 +90,10 @@ export default function LearningPage() {
             <a
               key={href}
               href={href}
-              className="rounded-2xl border border-white/10 bg-white/[0.03] px-4 py-5 transition hover:border-gold/40 hover:bg-gold/5"
+              className="rounded-2xl border border-foreground/10 bg-navy-elevated px-4 py-5 transition hover:border-gold/40 hover:bg-gold/5"
             >
               <div className="font-semibold">{t}</div>
-              <div className="mt-1 text-xs text-white/45">{d}</div>
+              <div className="mt-1 text-xs text-foreground/45">{d}</div>
             </a>
           ))}
         </div>
@@ -109,11 +109,11 @@ export default function LearningPage() {
             <h2 className="mt-4 font-display text-3xl font-semibold tracking-tight md:text-4xl">
               Пробное занятие — бесплатно
             </h2>
-            <p className="mt-4 text-white/55">
+            <p className="mt-4 text-foreground/55">
               45 минут онлайн или в студии. Поймёшь формат, уровень и подойдёт
               ли преподаватель. Без давления купить курс.
             </p>
-            <ul className="mt-6 space-y-2 text-sm text-white/50">
+            <ul className="mt-6 space-y-2 text-sm text-foreground/50">
               <li className="flex gap-2">
                 <span className="text-gold">✓</span> Любое направление
               </li>
@@ -141,7 +141,7 @@ export default function LearningPage() {
           {LEARNING_DIRS.map((d) => (
             <div
               key={d}
-              className="rounded-2xl border border-white/10 bg-white/[0.03] px-4 py-5 text-center text-sm font-medium"
+              className="rounded-2xl border border-foreground/10 bg-navy-elevated px-4 py-5 text-center text-sm font-medium"
             >
               {d}
             </div>
@@ -160,16 +160,16 @@ export default function LearningPage() {
           {LEARNING_ONDEMAND.map((c) => (
             <article
               key={c.title}
-              className="flex flex-col rounded-3xl border border-white/10 bg-navy-elevated p-6"
+              className="flex flex-col rounded-3xl border border-foreground/10 bg-navy-elevated p-6"
             >
-              <span className="w-fit rounded-full bg-white/5 px-2.5 py-1 text-[11px] text-white/50">
+              <span className="w-fit rounded-full bg-foreground/5 px-2.5 py-1 text-[11px] text-foreground/50">
                 Запись · {c.lessons} уроков
               </span>
               <h3 className="mt-3 font-display text-xl font-semibold">
                 {c.title}
               </h3>
-              <p className="mt-2 flex-1 text-sm text-white/50">{c.description}</p>
-              <div className="mt-4 text-xs text-white/35">{c.duration}</div>
+              <p className="mt-2 flex-1 text-sm text-foreground/50">{c.description}</p>
+              <div className="mt-4 text-xs text-foreground/35">{c.duration}</div>
               <div className="mt-1 font-display text-2xl font-semibold text-gold">
                 {formatPrice(c.price)}
               </div>
@@ -182,7 +182,7 @@ export default function LearningPage() {
       </Section>
 
       {/* C) Live with teacher */}
-      <Section id="live" className="bg-white/[0.015]">
+      <Section id="live" className="bg-[#eef4fb]">
         <SectionHeader
           eyebrow="С преподавателем"
           title="Живые курсы · онлайн и офлайн"
@@ -192,17 +192,17 @@ export default function LearningPage() {
           {LEARNING_LIVE.map((c) => (
             <article
               key={c.title}
-              className="flex flex-col rounded-3xl border border-white/10 bg-navy-elevated p-6 md:p-8"
+              className="flex flex-col rounded-3xl border border-foreground/10 bg-navy-elevated p-6 md:p-8"
             >
               <div className="flex flex-wrap items-start justify-between gap-3">
                 <div>
                   <div className="flex flex-wrap gap-2">
                     <span
-                      className={`rounded-full px-2.5 py-1 text-[11px] font-medium ${formatBadge[c.format] ?? "bg-white/10 text-white/60"}`}
+                      className={`rounded-full px-2.5 py-1 text-[11px] font-medium ${formatBadge[c.format] ?? "bg-foreground/5 text-foreground/60"}`}
                     >
                       {c.format}
                     </span>
-                    <span className="rounded-full bg-white/5 px-2.5 py-1 text-[11px] text-white/45">
+                    <span className="rounded-full bg-foreground/5 px-2.5 py-1 text-[11px] text-foreground/45">
                       {c.duration}
                     </span>
                   </div>
@@ -214,10 +214,10 @@ export default function LearningPage() {
                   {formatPrice(c.price)}
                 </div>
               </div>
-              <p className="mt-4 text-sm leading-relaxed text-white/60">
+              <p className="mt-4 text-sm leading-relaxed text-foreground/60">
                 {c.description}
               </p>
-              <ul className="mt-5 space-y-2 text-sm text-white/55">
+              <ul className="mt-5 space-y-2 text-sm text-foreground/55">
                 {c.includes.map((item) => (
                   <li key={item} className="flex gap-2">
                     <span className="text-gold">✓</span>
@@ -249,13 +249,13 @@ export default function LearningPage() {
           {LEARNING_SINGLE.map((c) => (
             <article
               key={c.title}
-              className="flex flex-col rounded-3xl border border-white/10 bg-navy-elevated p-6"
+              className="flex flex-col rounded-3xl border border-foreground/10 bg-navy-elevated p-6"
             >
               <h3 className="font-display text-lg font-semibold">{c.title}</h3>
-              <div className="mt-1 text-xs text-white/40">
+              <div className="mt-1 text-xs text-foreground/40">
                 {c.duration} · {c.format}
               </div>
-              <p className="mt-3 flex-1 text-sm text-white/50">{c.description}</p>
+              <p className="mt-3 flex-1 text-sm text-foreground/50">{c.description}</p>
               <div className="mt-4 font-display text-2xl font-semibold">
                 {formatPrice(c.price)}
               </div>
@@ -268,7 +268,7 @@ export default function LearningPage() {
       </Section>
 
       {/* E) Events */}
-      <Section id="events" className="bg-white/[0.015] pb-8">
+      <Section id="events" className="bg-[#eef4fb] pb-8">
         <SectionHeader
           eyebrow="Афиша"
           title="Вебинары · семинары · концерты"
@@ -278,7 +278,7 @@ export default function LearningPage() {
           {LEARNING_EVENTS.map((e) => (
             <article
               key={e.title}
-              className="flex flex-col justify-between gap-4 rounded-3xl border border-white/10 bg-navy-elevated p-6 sm:flex-row sm:items-center"
+              className="flex flex-col justify-between gap-4 rounded-3xl border border-foreground/10 bg-navy-elevated p-6 sm:flex-row sm:items-center"
             >
               <div>
                 <div className="text-xs text-gold/90">
@@ -287,7 +287,7 @@ export default function LearningPage() {
                 <h3 className="mt-1 font-display text-xl font-semibold">
                   {e.title}
                 </h3>
-                <p className="mt-2 text-sm text-white/50">{e.description}</p>
+                <p className="mt-2 text-sm text-foreground/50">{e.description}</p>
               </div>
               <div className="flex shrink-0 flex-col items-start gap-2 sm:items-end">
                 <div className="font-semibold text-gold">{e.priceLabel}</div>
@@ -314,11 +314,11 @@ export default function LearningPage() {
           ].map(([n, t, d]) => (
             <div
               key={n}
-              className="rounded-3xl border border-white/10 bg-white/[0.03] p-5"
+              className="rounded-3xl border border-foreground/10 bg-navy-elevated p-5"
             >
               <div className="font-mono text-sm text-gold">{n}</div>
               <div className="mt-3 font-semibold">{t}</div>
-              <p className="mt-1 text-sm text-white/50">{d}</p>
+              <p className="mt-1 text-sm text-foreground/50">{d}</p>
             </div>
           ))}
         </div>

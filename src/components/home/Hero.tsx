@@ -137,26 +137,26 @@ export function Hero() {
                 sizes="100vw"
                 draggable={false}
               />
-              <div className="absolute inset-0 bg-gradient-to-b from-navy/85 via-navy/75 to-navy" />
-              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(163,230,53,0.1),transparent_50%)]" />
+              <div className="absolute inset-0 bg-gradient-to-b from-white/90 via-white/85 to-white" />
+              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(10,79,255,0.08),transparent_50%)]" />
             </div>
 
             <div className="relative z-10 flex h-full items-center">
               <div className="mx-auto w-full max-w-7xl px-5 pb-24 md:px-6 md:pb-20">
                 <div className="max-w-4xl">
-                  <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs font-medium tracking-[0.18em] text-white/70 uppercase backdrop-blur">
+                  <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-foreground/10 bg-foreground/5 px-4 py-1.5 text-xs font-medium tracking-[0.18em] text-foreground/70 uppercase backdrop-blur">
                     <span className="h-1.5 w-1.5 rounded-full bg-gold" />
                     {slide.eyebrow}
                   </div>
 
-                  <h1 className="font-display text-[clamp(2.2rem,6vw,4.75rem)] leading-[0.98] font-semibold tracking-[-0.03em] text-white">
+                  <h1 className="font-display text-[clamp(2.2rem,6vw,4.75rem)] leading-[0.98] font-semibold tracking-[-0.03em] text-foreground">
                     {slide.title}
                     {slide.titleLine2 && (
-                      <span className="block text-white">{slide.titleLine2}</span>
+                      <span className="block text-foreground">{slide.titleLine2}</span>
                     )}
                   </h1>
 
-                  <p className="mt-5 max-w-xl text-lg leading-relaxed text-white/65 md:text-xl">
+                  <p className="mt-5 max-w-xl text-lg leading-relaxed text-foreground/65 md:text-xl">
                     {slide.description}
                   </p>
 
@@ -194,7 +194,7 @@ export function Hero() {
           type="button"
           onClick={prev}
           aria-label="Предыдущий слайд"
-          className="pointer-events-auto flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-black/40 text-white backdrop-blur transition hover:border-gold/40 hover:bg-black/60"
+          className="pointer-events-auto flex h-11 w-11 items-center justify-center rounded-full border border-foreground/15 bg-white/90 text-foreground shadow-sm backdrop-blur transition hover:border-gold/40 hover:bg-white"
         >
           <ArrowLeft size={18} />
         </button>
@@ -202,7 +202,7 @@ export function Hero() {
           type="button"
           onClick={next}
           aria-label="Следующий слайд"
-          className="pointer-events-auto flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-black/40 text-white backdrop-blur transition hover:border-gold/40 hover:bg-black/60"
+          className="pointer-events-auto flex h-11 w-11 items-center justify-center rounded-full border border-foreground/15 bg-white/90 text-foreground shadow-sm backdrop-blur transition hover:border-gold/40 hover:bg-white"
         >
           <ArrowRight size={18} />
         </button>
@@ -220,7 +220,7 @@ export function Hero() {
                 aria-selected={active === i}
                 aria-label={`Слайд ${i + 1}: ${s.title}`}
                 onClick={() => goTo(i)}
-                className="h-1 flex-1 overflow-hidden rounded-full bg-white/25"
+                className="h-1 flex-1 overflow-hidden rounded-full bg-foreground/15"
               >
                 <span
                   className={cn(
@@ -241,7 +241,7 @@ export function Hero() {
               </button>
             ))}
           </div>
-          <div className="flex items-center justify-between text-[11px] tracking-wide text-white/40 uppercase">
+          <div className="flex items-center justify-between text-[11px] tracking-wide text-foreground/40 uppercase">
             <span>
               {String(active + 1).padStart(2, "0")} /{" "}
               {String(count).padStart(2, "0")}

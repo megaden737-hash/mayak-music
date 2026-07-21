@@ -7,12 +7,13 @@ type Size = "sm" | "md" | "lg";
 
 const variants: Record<Variant, string> = {
   primary:
-    "bg-gold text-navy hover:bg-gold-hot shadow-[0_0_0_1px_rgba(232,168,56,0.25)]",
+    "bg-gold text-white hover:bg-gold-hot shadow-[0_0_0_1px_rgba(10,79,255,0.2)]",
   secondary:
-    "bg-white/10 text-white hover:bg-white/15 border border-white/10",
-  ghost: "bg-transparent text-white/80 hover:text-white hover:bg-white/5",
+    "bg-foreground/5 text-foreground hover:bg-foreground/10 border border-foreground/12",
+  ghost:
+    "bg-transparent text-foreground/80 hover:text-foreground hover:bg-foreground/5",
   outline:
-    "bg-transparent text-white border border-white/20 hover:border-gold/70 hover:text-gold",
+    "bg-transparent text-foreground border border-foreground/20 hover:border-gold hover:bg-gold-soft",
 };
 
 const sizes: Record<Size, string> = {
